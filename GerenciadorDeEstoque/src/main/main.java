@@ -5,6 +5,8 @@
  */
 package main;
 
+import model.Pessoa;
+
 /**
  *
  * @author j_ped
@@ -12,7 +14,6 @@ package main;
 public class main {
     
     public static void main(String[] args) {
-        
     
     }
     

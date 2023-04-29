@@ -8,6 +8,7 @@ package model;
 public class Produto {
     
     private int id;
+    private String nome;
     private String tipo;
     private int quantidade;
     private double preco;
@@ -34,6 +35,14 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public double getPreco() {
