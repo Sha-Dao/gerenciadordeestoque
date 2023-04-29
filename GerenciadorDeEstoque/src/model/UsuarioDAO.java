@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
  */
 public class UsuarioDAO {
     
-        public Usuario acesso (String email, String senha){
+       public Usuario acesso (String email, String senha){
         String sql = "Select * FROM usuario WHERE login = ? AND senha= md5(?)";
         Usuario usuario = new Usuario();
         
@@ -45,4 +45,31 @@ public class UsuarioDAO {
            
     }
     
+    public Usuario inserir(String email, String senha){
+        
+        String sql = "INSERT INTO `usuario`(`email`,`senha`) VALUES (?, md5(?))";
+        Usuario usuario = new Usuario();
+        PreparedStatement pst;
+        
+        try{
+            pst = Conexao.getConexao().prepareStatement(sql);
+    
+            pst.setString(1, email);
+            pst.setString(2, senha);
+            pst.execute();
+            pst.close();
+            
+        } catch (SQLException e){
+ 
+             System.out.println(e);
+                       
+        }
+        
+        return usuario;
+        
+    
+    
+    
+    
+            }
 }
