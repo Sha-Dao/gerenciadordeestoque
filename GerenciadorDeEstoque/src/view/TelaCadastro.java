@@ -5,6 +5,8 @@
  */
 package view;
 
+import static java.awt.Frame.MAXIMIZED_BOTH;
+
 /**
  *
  * @author j_ped
@@ -17,6 +19,7 @@ public class TelaCadastro extends javax.swing.JDialog {
     public TelaCadastro(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,8 +32,8 @@ public class TelaCadastro extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabelUsuario = new javax.swing.JLabel();
-        jLabelSenha = new javax.swing.JLabel();
+        jLabelNome = new javax.swing.JLabel();
+        jLabelEmail = new javax.swing.JLabel();
         jTextFieldUsuario = new javax.swing.JTextField();
         jLabelLogo = new javax.swing.JLabel();
         jButtonEntrar = new javax.swing.JButton();
@@ -51,13 +54,13 @@ public class TelaCadastro extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jPanel1.setFocusTraversalPolicyProvider(true);
 
-        jLabelUsuario.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelUsuario.setText("NOME");
+        jLabelNome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelNome.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelNome.setText("NOME");
 
-        jLabelSenha.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelSenha.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelSenha.setText("EMAIL");
+        jLabelEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelEmail.setText("EMAIL");
 
         jTextFieldUsuario.setBackground(new java.awt.Color(127, 108, 235));
         jTextFieldUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,8 +168,8 @@ public class TelaCadastro extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
-                                    .addComponent(jLabelUsuario)
-                                    .addComponent(jLabelSenha)
+                                    .addComponent(jLabelNome)
+                                    .addComponent(jLabelEmail)
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 289, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -193,13 +196,13 @@ public class TelaCadastro extends javax.swing.JDialog {
                 .addGap(76, 76, 76)
                 .addComponent(jLabelLogin)
                 .addGap(74, 74, 74)
-                .addComponent(jLabelUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelNome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
-                        .addComponent(jLabelSenha)
+                        .addComponent(jLabelEmail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(61, 61, 61)
@@ -229,15 +232,14 @@ public class TelaCadastro extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -305,10 +307,10 @@ public class TelaCadastro extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelEmail;
     private javax.swing.JLabel jLabelLogin;
     private javax.swing.JLabel jLabelLogo;
-    private javax.swing.JLabel jLabelSenha;
-    private javax.swing.JLabel jLabelUsuario;
+    private javax.swing.JLabel jLabelNome;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
