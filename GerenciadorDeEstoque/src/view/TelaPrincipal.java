@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author joice
@@ -17,9 +19,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public TelaPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
-        //this.setExtendedState(MAXIMIZED_BOTH);
+        this.setExtendedState(MAXIMIZED_BOTH);
         
     }
+
+    public JButton getjButtonAdicionarProduto() {
+        return jButtonAdicionarProduto;
+    }
+
+    public JButton getjButtonDadosPessoais() {
+        return jButtonDadosPessoais;
+    }
+
+    public JButton getjButtonListaProdutos() {
+        return jButtonListaProdutos;
+    }
+
+    public JButton getjButtonSair() {
+        return jButtonSair;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,11 +52,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonListaProdutos = new javax.swing.JButton();
+        jButtonAdicionarProduto = new javax.swing.JButton();
+        jButtonDadosPessoais = new javax.swing.JButton();
+        jButtonSair = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,95 +66,102 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(127, 108, 235));
 
-        jButton1.setBackground(new java.awt.Color(72, 69, 174));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Lista de Produtos");
-        jButton1.setBorderPainted(false);
+        jButtonListaProdutos.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonListaProdutos.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonListaProdutos.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonListaProdutos.setText("Lista de Produtos");
+        jButtonListaProdutos.setBorderPainted(false);
 
-        jButton2.setBackground(new java.awt.Color(72, 69, 174));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText(" Adicionar Produtos");
-        jButton2.setBorderPainted(false);
+        jButtonAdicionarProduto.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonAdicionarProduto.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonAdicionarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAdicionarProduto.setText(" Adicionar Produtos");
+        jButtonAdicionarProduto.setBorderPainted(false);
 
-        jButton3.setBackground(new java.awt.Color(72, 69, 174));
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Dados Pessoais");
-        jButton3.setBorderPainted(false);
+        jButtonDadosPessoais.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonDadosPessoais.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonDadosPessoais.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDadosPessoais.setText("Dados Pessoais");
+        jButtonDadosPessoais.setBorderPainted(false);
 
-        jButton4.setBackground(new java.awt.Color(72, 69, 174));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("SAIR");
-        jButton4.setBorderPainted(false);
+        jButtonSair.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonSair.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonSair.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSair.setText("Sair");
+        jButtonSair.setBorderPainted(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(117, 117, 117)
+                .addComponent(jButtonSair)
+                .addContainerGap(125, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(127, 127, 127))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAdicionarProduto)
+                    .addComponent(jButtonListaProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(198, 198, 198)
-                .addComponent(jButton4)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addGap(129, 129, 129)
+                .addComponent(jButtonListaProdutos, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonAdicionarProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonDadosPessoais, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
+                .addComponent(jButtonSair)
+                .addGap(46, 46, 46))
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("GERENCIADOR DE ESTOQUE");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/gerens-logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(25, 25, 25)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 509, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(39, 39, 39))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(73, 73, 73)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1079, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 750, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
         );
 
         pack();
@@ -175,11 +203,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAdicionarProduto;
+    private javax.swing.JButton jButtonDadosPessoais;
+    private javax.swing.JButton jButtonListaProdutos;
+    private javax.swing.JButton jButtonSair;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
