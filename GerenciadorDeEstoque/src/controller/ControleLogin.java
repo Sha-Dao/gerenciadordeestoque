@@ -29,7 +29,7 @@ public class ControleLogin implements ActionListener, KeyListener {
         telaLogin.getjButtonEntrar().addActionListener(this);
         telaLogin.getjTextFieldUsuario().addKeyListener(this);
         telaLogin.getjPasswordFieldSenha().addKeyListener(this);
-        telaLogin.getjButtonCadastrar().addKeyListener(this);
+        telaLogin.getjButtonCadastrar().addActionListener(this);
         telaLogin.setVisible(true);
         
 

@@ -16,6 +16,8 @@ public class TelaPerfil extends javax.swing.JDialog {
      */
     public TelaPerfil(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+    
+        
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -47,7 +49,6 @@ public class TelaPerfil extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(500, 400));
-        setPreferredSize(new java.awt.Dimension(500, 400));
 
         jPanel1.setBackground(new java.awt.Color(72, 69, 174));
 

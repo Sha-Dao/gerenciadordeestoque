@@ -73,7 +73,7 @@ public class ServicePessoa {
             ImageIcon icon = new ImageIcon(file.getAbsolutePath());
             icon.setImage(icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
             telaPessoa.getjLabelImagem().setIcon(icon);            
-            imagem = new BufferedImage(200, 200, BufferedImage.TYPE_INT_RGB);
+            imagem = new BufferedImage(120, 120, BufferedImage.TYPE_INT_RGB);
             imagem.getGraphics().drawImage(icon.getImage(), 0, 0, null);
                   
         }catch(Exception e){

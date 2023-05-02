@@ -31,8 +31,7 @@ public class ControlePessoa implements ActionListener, KeyListener {
         
         //instanciando as telas
             telaPessoa = new TelaCadastro(null, true);
-            telaPessoa.setVisible(true);
-            System.out.println("OLa");
+         
          
             servicePessoa = new ServicePessoa(telaPessoa);
         
@@ -40,7 +39,7 @@ public class ControlePessoa implements ActionListener, KeyListener {
 
         telaPessoa.getjButtonCadastrar().addActionListener(this);
         telaPessoa.getjButtonFoto().addActionListener(this);
-        
+        telaPessoa.setVisible(true);
     }
 
     @Override
