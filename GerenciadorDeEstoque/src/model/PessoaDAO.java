@@ -1,4 +1,4 @@
-
+ 
 package model;
 
 import java.sql.Date;
@@ -42,7 +42,7 @@ public class PessoaDAO {
     }
     
     public void inserir (Pessoa pessoa){
-        String sql = "INSERT INTO `pessoa`(`nome`,`datanasc`,`endereco`,`telefone`) VALUES ( ?, ?, ?, ?, ?, ?, md5(?))";
+        String sql = "INSERT INTO `pessoa`(`nome`,`datanasc`,`endereco`,`telefone`, `email`, `senha`) VALUES ( ?, ?, ?, ?, ?, ?, md5(?))";
         PreparedStatement pst;
        
         

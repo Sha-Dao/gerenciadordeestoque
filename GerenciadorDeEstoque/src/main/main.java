@@ -5,6 +5,8 @@
  */
 package main;
 
+import controller.ControleLogin;
+import controller.ControlePessoa;
 import model.Pessoa;
 
 /**
@@ -14,6 +16,7 @@ import model.Pessoa;
 public class main {
     
     public static void main(String[] args) {
+        ControleLogin c = new ControleLogin();
     
     }
     

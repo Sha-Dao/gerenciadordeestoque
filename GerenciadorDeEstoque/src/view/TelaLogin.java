@@ -110,8 +110,12 @@ public class TelaLogin extends javax.swing.JDialog {
 
         jPasswordFieldSenha.setBackground(new java.awt.Color(127, 108, 235));
         jPasswordFieldSenha.setForeground(new java.awt.Color(255, 255, 255));
-        jPasswordFieldSenha.setText("jPasswordField1");
         jPasswordFieldSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPasswordFieldSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPasswordFieldSenhaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -183,6 +187,10 @@ public class TelaLogin extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jPasswordFieldSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPasswordFieldSenhaActionPerformed
 
     private void jTextFieldUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsuarioActionPerformed
         // TODO add your handling code here:
