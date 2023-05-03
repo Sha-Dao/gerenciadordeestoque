@@ -17,14 +17,14 @@ import java.util.ArrayList;
 public class ProdutoDAO {
     
     public void inserir(Produto produto){
-        String sql = "INSERT INTO `produto`(`nome`,`tipo`, `quantidade`, `preco`) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO `produto`(`nome`,`idtipo`, `quantidade`, `preco`) VALUES (?, ?, ?, ?)";
         PreparedStatement pst;
   
         try{
             pst = Conexao.getConexao().prepareStatement(sql);
            
             pst.setString(1, produto.getNome());
-            pst.setString(2, produto.getTipo());
+            pst.setInt(2, produto.getIdTipo());
             pst.setInt(3, produto.getQuantidade());
             pst.setDouble(4, produto.getPreco());
             
@@ -43,13 +43,13 @@ public class ProdutoDAO {
     
     public void alterar(Produto produto){
         
-        String sql = "UPDATE produto SET nome = ?, tipo = ?, quantidade = ?, preco = ? WHERE id = ?";
+        String sql = "UPDATE produto SET nome = ?, idtipo = ?, quantidade = ?, preco = ? WHERE id = ?";
         
         PreparedStatement pst;
         try {
             pst = Conexao.getConexao().prepareStatement(sql);
             pst.setString(1, produto.getNome());
-            pst.setString(2, produto.getTipo());
+            pst.setInt(2, produto.getIdTipo());
             pst.setInt(3, produto.getQuantidade());
             pst.setDouble(4, produto.getPreco());
             pst.setInt(5, produto.getId());
@@ -96,7 +96,7 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
-                produto.setTipo(rs.getString("tipo"));
+                produto.setIdTipo(rs.getInt("tipo"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setPreco(rs.getDouble("preco"));
 

@@ -9,7 +9,7 @@ public class Produto {
     
     private int id;
     private String nome;
-    private String tipo;
+    private int idTipo;
     private int quantidade;
     private double preco;
 
@@ -21,13 +21,15 @@ public class Produto {
         this.id = id;
     }
 
-    public String getTipo() {
-        return tipo;
+    public int getIdTipo() {
+        return idTipo;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setIdTipo(int idTipo) {
+        this.idTipo = idTipo;
     }
+
+   
 
     public int getQuantidade() {
         return quantidade;

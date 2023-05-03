@@ -5,14 +5,21 @@
  */
 package service;
 
+import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Pessoa;
@@ -28,6 +35,7 @@ public class ServicePessoa {
     private TelaCadastro telaPessoa;
     private PessoaDAO pessoaDAO;
     private BufferedImage imagem;
+    private Date data;
 
 
 
@@ -35,9 +43,10 @@ public class ServicePessoa {
  
         this.pessoaDAO = new PessoaDAO();
         this.telaPessoa = tela;
+        this.data = new Date();
 
     }
-    public void cadastrar() {
+    public void cadastrar() throws ParseException, IOException {
        
         Pessoa pessoa = new Pessoa();
         
@@ -46,14 +55,20 @@ public class ServicePessoa {
             pessoa.setNome(telaPessoa.getjTextFieldNome().getText());
             pessoa.setEmail(telaPessoa.getjTextFieldEmail().getText());
             pessoa.setEndereco(telaPessoa.getjTextFieldEndereco().getText());
-            pessoa.setCpf(telaPessoa.getjFormattedTextFieldCPF().getText());
+            
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            Date date = dateFormat.parse(telaPessoa.getjFormattedTextFieldDataNasc().getText());
+            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+            pessoa.setDatanasc(sqlDate);
+            
+            pessoa.setCpf(telaPessoa.getjFormattedTextFieldCPF().getText().replaceAll("[\\.-]", ""));
             pessoa.setTelefone(telaPessoa.getjTextFieldTelefone().getText());
             pessoa.setSenha(telaPessoa.getjPasswordFieldSenha().getText());
             
-            if(this.imagem != null){
-                pessoa.setFoto(this.telaPessoa.getLinkImagem());
-                this.salvarImagem();
-            }
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ImageIO.write(imagem, "jpg", baos);
+            byte[] fotoEmBytes = baos.toByteArray();
+            pessoa.setFoto(fotoEmBytes);
 
             pessoaDAO.inserir(pessoa);
             
@@ -63,7 +78,7 @@ public class ServicePessoa {
      public void imagem(){
          
         JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FileNameExtensionFilter("Imagens (*.bmp, *.png, *.jpg)", "bmp", "png", "jpg"));
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Imagens (*.bmp, *.png, *.jpg, *.jpeg)", "bmp", "png", "jpg", "jpeg"));
         fileChooser.setDialogTitle("Abrir Imagem");
         fileChooser.showOpenDialog(telaPessoa);//abre o arquivo
         
@@ -71,15 +86,40 @@ public class ServicePessoa {
 		
         try{	
             ImageIcon icon = new ImageIcon(file.getAbsolutePath());
-            icon.setImage(icon.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH));
-            telaPessoa.getjLabelImagem().setIcon(icon);            
-            imagem = new BufferedImage(120, 120, BufferedImage.TYPE_INT_RGB);
+            Image image = icon.getImage();
+
+            // Obtém a largura e a altura da imagem original
+            int larguraOriginal = image.getWidth(null);
+            int alturaOriginal = image.getHeight(null);
+
+            // Calcula uma nova largura e altura para a imagem de acordo com a proporção original
+            int larguraNova = larguraOriginal;
+            int alturaNova = alturaOriginal;
+            if (larguraOriginal > 300) {
+                larguraNova = 300;
+                alturaNova = (int) ((double) alturaOriginal / larguraOriginal * larguraNova);
+            }
+            if (alturaNova > 300) {
+                alturaNova = 300;
+                larguraNova = (int) ((double) larguraNova / alturaNova * alturaNova);
+            }
+
+            // Redimensiona a imagem para a nova largura e altura
+            image = image.getScaledInstance(larguraNova, alturaNova, Image.SCALE_SMOOTH);
+
+            // Cria um novo ImageIcon com a imagem redimensionada
+            icon = new ImageIcon(image);
+
+            telaPessoa.getjLabelImagem().setIcon(icon);
+            telaPessoa.getjLabelImagem().setHorizontalAlignment(JLabel.CENTER);
+            telaPessoa.getjLabelImagem().setVerticalAlignment(JLabel.CENTER);
+
+            imagem = new BufferedImage(larguraNova, alturaNova, BufferedImage.TYPE_INT_RGB);
             imagem.getGraphics().drawImage(icon.getImage(), 0, 0, null);
-                  
+
         }catch(Exception e){
             JOptionPane.showMessageDialog(telaPessoa, "Não obteve o carregamento do arquivo");
         }
-         
      }
       private boolean salvarImagem(){
         

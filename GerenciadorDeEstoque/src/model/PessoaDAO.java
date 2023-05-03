@@ -42,7 +42,7 @@ public class PessoaDAO {
     }
     
     public void inserir (Pessoa pessoa){
-        String sql = "INSERT INTO `pessoa`(`nome`,`datanasc`,`endereco`,`telefone`, `email`, `senha`) VALUES ( ?, ?, ?, ?, ?, ?, md5(?))";
+        String sql = "INSERT INTO `pessoa`(`nome`,`datanasc`,`cpf`,`endereco`,`telefone`, `email`, `senha`, `foto`) VALUES(?, ?, ?, ?, ?, ?, md5(?),?)";
         PreparedStatement pst;
        
         
@@ -57,6 +57,8 @@ public class PessoaDAO {
             pst.setString(5, pessoa.getTelefone());
             pst.setString(6, pessoa.getEmail());
             pst.setString (7, pessoa.getSenha());
+            pst.setBytes(8, pessoa.getFoto());
+        
             
             pst.execute();
             pst.close();

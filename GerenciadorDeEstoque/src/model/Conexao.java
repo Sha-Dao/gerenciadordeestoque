@@ -20,7 +20,7 @@ public class Conexao {
  public static Connection getConexao(){
      if (conexao==null){
          try{
-             conexao= DriverManager.getConnection("jdbc:mysql://localhost:3306/gerenciador", "[]", "[]");
+             conexao= DriverManager.getConnection("jdbc:mysql://localhost:3306/gerenciador", "root", "#Moriarty4419@");
          }catch (SQLException e){
              JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados!");
              System.out.println(e);

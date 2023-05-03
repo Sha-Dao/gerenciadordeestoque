@@ -39,14 +39,19 @@ public class ControlePessoa implements ActionListener, KeyListener {
 
         telaPessoa.getjButtonCadastrar().addActionListener(this);
         telaPessoa.getjButtonFoto().addActionListener(this);
+        telaPessoa.getjPasswordFieldConfSenha().addKeyListener(this);
+        telaPessoa.getjPasswordFieldSenha().addKeyListener(this);
         telaPessoa.setVisible(true);
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource().equals(telaPessoa.getjButtonCadastrar())){
-            if(telaPessoa.getjPasswordFieldSenha().equals(telaPessoa.getjPasswordFieldConfSenha())){   
+  
+            if(String.valueOf(telaPessoa.getjPasswordFieldSenha().getPassword()).equals(String.valueOf(telaPessoa.getjPasswordFieldSenha().getPassword()))){ 
+
              if ((e.getSource().equals(telaPessoa.getjButtonCadastrar()))&& (!(telaPessoa.getjTextFieldNome().getText().equals("")))
                 && (!(telaPessoa.getjTextFieldEmail().getText().equals(""))) && (!(telaPessoa.getjTextFieldEndereco().getText().equals("")))
                 &&(!(telaPessoa.getjTextFieldTelefone().getText().equals("")))) {
@@ -59,16 +64,23 @@ public class ControlePessoa implements ActionListener, KeyListener {
                 TelaCadastro telaPessoa = new TelaCadastro(null, true);
                 telaPessoa.setVisible(true);
         
-                }
-            }
-        }
-            if(e.getSource().equals(telaPessoa.getjButtonFoto())){
-                this.servicePessoa.imagem();
                 
             }else {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
         
-        }
+            }
+            }else{
+                    JOptionPane.showMessageDialog(null, "As senhas digitadas não coincidem");
+                 
+            }
+            
+             
+            }
+        
+            if(e.getSource().equals(telaPessoa.getjButtonFoto())){
+                this.servicePessoa.imagem();
+                
+            }
     }
 
 
@@ -79,23 +91,30 @@ public class ControlePessoa implements ActionListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent ke) {
-        validarSenha();
-     
-        }
+   
+    }
 
     private void validarSenha() {
-        if (telaPessoa.getjPasswordFieldConfSenha().getText() != "" && telaPessoa.getjPasswordFieldSenha().getText()!="") {
-              if (telaPessoa.getjPasswordFieldConfSenha().getText().equals(telaPessoa.getjPasswordFieldSenha().getText())){
+        if ((!String.valueOf(telaPessoa.getjPasswordFieldSenha().getPassword()).isEmpty()) && (!String.valueOf(telaPessoa.
+                getjPasswordFieldConfSenha().getPassword()).isEmpty())) {
+            
+              if (String.valueOf(telaPessoa.getjPasswordFieldConfSenha().getPassword()).equals
+              (String.valueOf(telaPessoa.getjPasswordFieldSenha().getPassword()))){
                   telaPessoa.getjPasswordFieldConfSenha().setBackground(new Color(127,108,235));
                   
                  
               }else{
                       telaPessoa.getjPasswordFieldConfSenha().setBackground(new Color(224, 45, 45));
+              }}
+              else{
+                  telaPessoa.getjPasswordFieldConfSenha().setBackground(new Color(127,108,235));
+              
               }
+              
              
-    }
-     
-    }
+            }
+   
+    
 
     @Override
     public void keyPressed(KeyEvent ke) {
@@ -103,6 +122,9 @@ public class ControlePessoa implements ActionListener, KeyListener {
 
     @Override
     public void keyReleased(KeyEvent ke) {
+           if ((ke.getSource().equals(telaPessoa.getjPasswordFieldConfSenha()) || ke.getSource().equals(telaPessoa.getjPasswordFieldSenha()))){
+                validarSenha();
+            }
 
     }
     

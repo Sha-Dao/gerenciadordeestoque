@@ -21,15 +21,17 @@ public class Pessoa extends Usuario {
     private String telefone;
     private String email;
     private String senha;
-    private String foto;
+    private byte[] foto;
 
-    public String getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
+
+
 
     public String getEmail() {
         return email;
