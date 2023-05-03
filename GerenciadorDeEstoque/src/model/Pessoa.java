@@ -11,7 +11,7 @@ import java.sql.Date;
  *
  * @author j_ped
  */
-public class Pessoa extends Usuario {
+public class Pessoa {
     
     private int id;
     private String nome;
@@ -22,6 +22,15 @@ public class Pessoa extends Usuario {
     private String email;
     private String senha;
     private byte[] foto;
+
+    public Date getDatanasc() {
+        return datanasc;
+    }
+
+    public void setDatanasc(Date datanasc) {
+        this.datanasc = datanasc;
+    }
+   
 
     public byte[] getFoto() {
         return foto;
@@ -81,13 +90,6 @@ public class Pessoa extends Usuario {
         this.nome = nome;
     }
 
-    public Date getDatanasc() {
-        return datanasc;
-    }
-
-    public void setDatanasc(Date datanasc) {
-        this.datanasc = datanasc;
-    }
 
     public String getCpf() {
         return cpf;

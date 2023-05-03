@@ -5,10 +5,20 @@
  */
 package controller;
 
+import view.TelaPrincipal;
+
 /**
  *
  * @author j_ped
  */
 public class ControlePrincipal {
+
+    public ControlePrincipal() {
+        TelaPrincipal telaPrincipal = new TelaPrincipal();
+        telaPrincipal.setVisible(true);
+        
+    }
+    
+    
     
 }

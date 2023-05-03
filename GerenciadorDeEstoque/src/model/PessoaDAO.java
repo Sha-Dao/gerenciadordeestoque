@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class PessoaDAO {
 
     public Pessoa acesso (String email, String senha){
-        String sql = "Select * FROM usuario WHERE login = ? AND senha= md5(?)";
+        String sql = "Select * FROM pessoa WHERE email = ? AND senha= md5(?)";
         Pessoa pessoa = new Pessoa();
         
         PreparedStatement pst;
