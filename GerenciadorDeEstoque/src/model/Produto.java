@@ -12,6 +12,16 @@ public class Produto {
     private int idTipo;
     private int quantidade;
     private double preco;
+    private String imagem;
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
+    
 
     public int getId() {
         return id;

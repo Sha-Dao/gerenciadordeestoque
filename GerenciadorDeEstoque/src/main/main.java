@@ -16,7 +16,7 @@ import model.Pessoa;
 public class main {
     
     public static void main(String[] args) {
-        ControleLogin c = new ControleLogin();
+        ControleLogin controleLogin = new ControleLogin();
     
     }
     
