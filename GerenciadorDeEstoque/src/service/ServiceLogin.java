@@ -35,10 +35,10 @@ public class ServiceLogin {
             telaLogin.dispose();
             ControlePrincipal cp = new ControlePrincipal();
         
-    }else{
-            JOptionPane.showMessageDialog(telaLogin,"Dados incorretos!");
-            
-        }
+        }else{
+                JOptionPane.showMessageDialog(telaLogin,"Dados incorretos!");
+
+            }
     }
     
     
