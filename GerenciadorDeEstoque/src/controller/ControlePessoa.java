@@ -10,7 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.text.ParseException;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import service.ServicePessoa;
 import view.TelaCadastro;
@@ -57,7 +61,13 @@ public class ControlePessoa implements ActionListener, KeyListener {
                 &&(!(telaPessoa.getjTextFieldTelefone().getText().equals("")))) {
                 
             
-                cadastrar();
+                 try {
+                     cadastrar();
+                 } catch (ParseException ex) {
+                     Logger.getLogger(ControlePessoa.class.getName()).log(Level.SEVERE, null, ex);
+                 } catch (IOException ex) {
+                     Logger.getLogger(ControlePessoa.class.getName()).log(Level.SEVERE, null, ex);
+                 }
                 
                 JOptionPane.showMessageDialog(null, "Dados cadastrados");
                 telaPessoa.dispose();
@@ -84,7 +94,7 @@ public class ControlePessoa implements ActionListener, KeyListener {
     }
 
 
-    private void cadastrar() {
+    private void cadastrar() throws ParseException, IOException {
         servicePessoa.cadastrar(); 
         
     }
