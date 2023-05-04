@@ -56,9 +56,12 @@ public class ServicePessoa {
             pessoa.setEmail(telaPessoa.getjTextFieldEmail().getText());
             pessoa.setEndereco(telaPessoa.getjTextFieldEndereco().getText());
             
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
             Date date = dateFormat.parse(telaPessoa.getjFormattedTextFieldDataNasc().getText());
             java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+
+            pessoa.setDatanasc(sqlDate);
+           
             pessoa.setDatanasc(sqlDate);
             
             pessoa.setCpf(telaPessoa.getjFormattedTextFieldCPF().getText().replaceAll("[\\.-]", ""));
@@ -87,22 +90,23 @@ public class ServicePessoa {
         try{	
             ImageIcon icon = new ImageIcon(file.getAbsolutePath());
             Image image = icon.getImage();
-
+           
             // Obtém a largura e a altura da imagem original
             int larguraOriginal = image.getWidth(null);
             int alturaOriginal = image.getHeight(null);
 
-            // Calcula uma nova largura e altura para a imagem de acordo com a proporção original
-            int larguraNova = larguraOriginal;
-            int alturaNova = alturaOriginal;
-            if (larguraOriginal > 300) {
-                larguraNova = 300;
-                alturaNova = (int) ((double) alturaOriginal / larguraOriginal * larguraNova);
-            }
-            if (alturaNova > 300) {
-                alturaNova = 300;
-                larguraNova = (int) ((double) larguraNova / alturaNova * alturaNova);
-            }
+           int larguraMaxima = 200;
+int alturaMaxima = 200;
+double proporcaoOriginal = (double) larguraOriginal / alturaOriginal;
+
+int larguraNova = larguraMaxima;
+int alturaNova = (int) (larguraNova / proporcaoOriginal);
+
+if (alturaNova < alturaMaxima) {
+    alturaNova = alturaMaxima;
+    larguraNova = (int) (alturaNova * proporcaoOriginal);
+}
+
 
             // Redimensiona a imagem para a nova largura e altura
             image = image.getScaledInstance(larguraNova, alturaNova, Image.SCALE_SMOOTH);
