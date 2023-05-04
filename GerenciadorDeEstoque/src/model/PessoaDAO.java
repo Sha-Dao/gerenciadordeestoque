@@ -51,7 +51,7 @@ public class PessoaDAO {
     
     
             pst.setString(1, pessoa.getNome());
-            pst.setDate(2, pessoa.getDatanasc());
+            pst.setDate(2,  pessoa.getDatanasc());
             pst.setString(3, pessoa.getCpf());
             pst.setString(4, pessoa.getEndereco());
             pst.setString(5, pessoa.getTelefone());
