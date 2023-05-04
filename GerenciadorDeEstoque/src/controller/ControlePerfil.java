@@ -21,11 +21,12 @@ public class ControlePerfil implements ActionListener{
     private ServicePerfil servicePerfil;
 
     public ControlePerfil() {
+       telaPerfil = new TelaPerfil(null, true);
+        this.servicePerfil= new ServicePerfil(telaPerfil);
         
-        telaPerfil = new TelaPerfil(null, true);
-        
-        telaPerfil.setVisible(true);
         servicePerfil.listar();
+        telaPerfil.setVisible(true);
+        
         
     }
     

@@ -21,6 +21,8 @@ public class ServicePerfil {
         this.telaPerfil = telaPerfil;
         this.pessoaDAO = new PessoaDAO();
     }
+
+    
     
     
     
@@ -30,9 +32,10 @@ public class ServicePerfil {
     
     private void listaDados(ArrayList<Pessoa> listaPessoa) { 
         Pessoa pessoa = new Pessoa();
-        listaPessoa.get(5);
+        System.out.println(listaPessoa.get(0).getFoto());
+        
       
-        byte[] imagemBytes = pessoa.getFoto();
+        byte[] imagemBytes =listaPessoa.get(0).getFoto();;
         // Cria um objeto ImageIcon a partir dos bytes da imagem
         ImageIcon imagemIcon = new ImageIcon(imagemBytes);
         // Define o ícone do JLabel "jlabelFoto" da telaPerfil com o ImageIcon criado
