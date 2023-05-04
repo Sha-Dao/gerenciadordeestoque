@@ -81,7 +81,7 @@ public class ProdutoDAO {
     }
      
      public ArrayList<Produto> listar(){
-        String sql = "SELECT * FROM produto ORDER BY descricao, preco";
+        String sql = "SELECT * FROM produto ORDER BY nome";
         
         ArrayList<Produto> lista = new ArrayList<>();
         
@@ -99,6 +99,7 @@ public class ProdutoDAO {
                 produto.setIdTipo(rs.getInt("tipo"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setPreco(rs.getDouble("preco"));
+                //produto.setImagem(rs.getBlob("imagem")));
 
                 
                 lista.add(produto);

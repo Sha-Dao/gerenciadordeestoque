@@ -12,16 +12,16 @@ public class Produto {
     private int idTipo;
     private int quantidade;
     private double preco;
-    private String imagem;
+    private byte[] imagem;
 
-    public String getImagem() {
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(String imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
-    
+
 
     public int getId() {
         return id;
