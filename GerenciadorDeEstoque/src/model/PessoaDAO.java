@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -94,6 +95,40 @@ public class PessoaDAO {
         return true;
 
    }
-
+      public ArrayList<Pessoa> listar(){
+        String sql = "SELECT * FROM pessoa ORDER BY nome,cpf";
+        
+        ArrayList<Pessoa> lista = new ArrayList<>();
+        
+        PreparedStatement pst;
+        ResultSet rs;
+        
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                Pessoa pessoa = new Pessoa();
+                pessoa.setId(rs.getInt("id"));
+                pessoa.setNome(rs.getString("nome"));
+                pessoa.setCpf(rs.getString("cpf"));
+                pessoa.setTelefone(rs.getString("telefone"));
+                pessoa.setEndereco(rs.getString("endereco"));
+                pessoa.setFoto(rs.getBytes("foto"));
+                lista.add(pessoa);
+            }
+            
+            rs.close();
+            pst.close();
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        
+        return lista;  
+    }
     
-}
+
+    }
+
+   
