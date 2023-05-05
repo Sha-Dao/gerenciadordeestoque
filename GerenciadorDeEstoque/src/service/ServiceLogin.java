@@ -9,8 +9,6 @@ import controller.ControlePrincipal;
 import javax.swing.JOptionPane;
 import model.Pessoa;
 import model.PessoaDAO;
-import model.Usuario;
-import model.UsuarioDAO;
 import view.TelaLogin;
 
 /**
