@@ -35,18 +35,13 @@ public class ServicePerfil {
     public void listaDados(Pessoa pessoa) { 
        telaPerfil.getjTextFieldNome().setText(pessoa.getEmail());
        
-       
-
-            // 
-           
-
-            // Obtém a imagem original a partir dos bytes
+       //adicionando imagem redimensionada
             byte[] imagemBytes = pessoa.getFoto();
             ImageIcon imagemBD = new ImageIcon(imagemBytes);
             
             
            
-            // Obtém a largura e a altura da imagem original
+           
             int larguraOriginal = imagemBD.getIconWidth();
             int alturaOriginal = imagemBD.getIconWidth();
 
@@ -63,13 +58,13 @@ public class ServicePerfil {
             }
 
 
-            // Redimensiona a imagem para a nova largura e altura
+           
             ImageIcon image = new ImageIcon(imagemBD.getImage().getScaledInstance(larguraNova, alturaNova, Image.SCALE_SMOOTH));
 
-            // Cria um novo ImageIcon com a imagem redimensionada
+          
             telaPerfil.getjLabelFoto().setIcon(image);
          
-
+        
 
 
 
