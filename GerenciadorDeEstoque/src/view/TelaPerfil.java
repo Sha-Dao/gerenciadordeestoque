@@ -6,6 +6,7 @@
 package view;
 
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -24,6 +25,14 @@ public class TelaPerfil extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
     }
 
+    public JTextField getjTextFieldNome() {
+        return jTextFieldNome;
+    }
+
+    public TelaPerfil(TelaPrincipal telaPrincipal) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public JLabel getjLabelFoto() {
         return jLabelFoto;
     }
@@ -39,7 +48,7 @@ public class TelaPerfil extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldNome = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -60,8 +69,11 @@ public class TelaPerfil extends javax.swing.JDialog {
 
         jPanel1.setBackground(new java.awt.Color(72, 69, 174));
 
-        jTextField1.setBackground(new java.awt.Color(127, 108, 235));
-        jTextField1.setBorder(null);
+        jTextFieldNome.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldNome.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextFieldNome.setForeground(new java.awt.Color(255, 255, 255));
+        jTextFieldNome.setBorder(null);
+        jTextFieldNome.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -76,21 +88,35 @@ public class TelaPerfil extends javax.swing.JDialog {
         jLabel3.setText("EMAIL");
 
         jTextField2.setBackground(new java.awt.Color(127, 108, 235));
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
         jTextField2.setBorder(null);
+        jTextField2.setDisabledTextColor(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("CPF");
 
         jTextField3.setBackground(new java.awt.Color(127, 108, 235));
+        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(255, 255, 255));
         jTextField3.setBorder(null);
+        jTextField3.setCaretColor(new java.awt.Color(255, 255, 255));
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("DATA DE NASCIMENTO");
 
         jTextField4.setBackground(new java.awt.Color(127, 108, 235));
+        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(255, 255, 255));
         jTextField4.setBorder(null);
+        jTextField4.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -106,17 +132,27 @@ public class TelaPerfil extends javax.swing.JDialog {
         jLabel7.setText("ENDEREÇO");
 
         jTextField5.setBackground(new java.awt.Color(127, 108, 235));
+        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(255, 255, 255));
         jTextField5.setBorder(null);
+        jTextField5.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jTextField6.setBackground(new java.awt.Color(127, 108, 235));
+        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
         jTextField6.setBorder(null);
+        jTextField6.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jButton1.setBackground(new java.awt.Color(127, 108, 235));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Trocar de senha");
 
+        jLabelFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/perfil-imagem.png"))); // NOI18N
+        jLabelFoto.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabelFoto.setMaximumSize(new java.awt.Dimension(200, 200));
+        jLabelFoto.setMinimumSize(new java.awt.Dimension(200, 200));
         jLabelFoto.setPreferredSize(new java.awt.Dimension(200, 200));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -139,7 +175,7 @@ public class TelaPerfil extends javax.swing.JDialog {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)))
+                                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.LEADING)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(193, 193, 193)
                                 .addComponent(jLabel1)))
@@ -172,12 +208,12 @@ public class TelaPerfil extends javax.swing.JDialog {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(82, 82, 82)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelFoto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -220,6 +256,10 @@ public class TelaPerfil extends javax.swing.JDialog {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,11 +314,11 @@ public class TelaPerfil extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelFoto;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextFieldNome;
     // End of variables declaration//GEN-END:variables
 }

@@ -133,6 +133,7 @@ public class ServicePessoa {
             return true;
         } catch (IOException e) {
             JOptionPane.showMessageDialog(telaPessoa, "Não foi possível enviar a imagem");
+            System.out.println(e);
             return false;
         }
       }

@@ -31,6 +31,10 @@ public class PessoaDAO {
                 pessoa.setId(rs.getInt("id"));
                 pessoa.setSenha (rs.getString("senha"));
                 pessoa.setEmail(rs.getString("email"));
+                pessoa.setEndereco(rs.getString("endereco"));
+                pessoa.setTelefone(rs.getString("telefone"));
+                pessoa.setDatanasc(rs.getDate("datanasc"));
+                pessoa.setFoto(rs.getBytes("foto"));
             }     
             rs.close();
             pst.close();

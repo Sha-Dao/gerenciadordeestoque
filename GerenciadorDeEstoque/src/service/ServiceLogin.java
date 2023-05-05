@@ -20,20 +20,32 @@ import view.TelaLogin;
 public class ServiceLogin {
     private TelaLogin telaLogin;
     private PessoaDAO pessoaDAO;
+    private Pessoa pessoaLogin;
+
+    public Pessoa getPessoaLogin() {
+        return pessoaLogin;
+    }
+
+    public void setPessoaLogin(Pessoa pessoaLogin) {
+        this.pessoaLogin = pessoaLogin;
+    }
+    
 
     public ServiceLogin(TelaLogin tela) {
         this.telaLogin = tela;
         this.pessoaDAO = new PessoaDAO();
     }
+    
     public void entrar() {
-        Pessoa pessoaLogin = pessoaDAO.acesso(telaLogin.getjTextFieldUsuario().getText(), String.valueOf(telaLogin.
+       pessoaLogin = pessoaDAO.acesso(telaLogin.getjTextFieldUsuario().getText(), String.valueOf(telaLogin.
                 getjPasswordFieldSenha().getPassword()));
         
         if (pessoaLogin.getId() > 0) {
             
             JOptionPane.showMessageDialog(telaLogin,"Login feito com sucesso!");
             telaLogin.dispose();
-            ControlePrincipal cp = new ControlePrincipal();
+            ControlePrincipal controlePrincipal = new ControlePrincipal(pessoaLogin);
+          
         
         }else{
                 JOptionPane.showMessageDialog(telaLogin,"Dados incorretos!");

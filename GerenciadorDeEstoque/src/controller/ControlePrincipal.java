@@ -5,20 +5,62 @@
  */
 package controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import model.Pessoa;
 import view.TelaPrincipal;
 
 /**
  *
  * @author j_ped
  */
-public class ControlePrincipal {
+public class ControlePrincipal implements ActionListener{
+    
+    private Pessoa pessoaPrincipal;
+    private TelaPrincipal telaPrincipal;
 
-    public ControlePrincipal() {
-        TelaPrincipal telaPrincipal = new TelaPrincipal();
+    public Pessoa getPessoaPrincipal() {
+        return pessoaPrincipal;
+    }
+
+    public void setPessoaPrincipal(Pessoa pessoa) {
+        this.pessoaPrincipal = pessoaPrincipal;
+    }
+
+
+    
+    
+
+    public ControlePrincipal(Pessoa pessoa) {
+     
+        this.telaPrincipal = new TelaPrincipal();
+        this.pessoaPrincipal = pessoa;
+        
+        
+        telaPrincipal.getjButtonPerfil().addActionListener(this);
+    
         telaPrincipal.setVisible(true);
+                
         
     }
     
+    
+    
+     
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if (e.getSource().equals(telaPrincipal.getjButtonPerfil())){
+            ControlePerfil controlePerfil = new ControlePerfil(telaPrincipal, pessoaPrincipal);
+            
+            
+            
+        
+        }
+        
+    }
     
     
 }

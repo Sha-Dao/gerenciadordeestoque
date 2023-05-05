@@ -44,6 +44,7 @@ public class ControleLogin implements ActionListener, KeyListener {
         if (e.getSource().equals(telaLogin.getjButtonEntrar())){
             serviceLogin.entrar();  
             
+            
         }
         if(e.getSource().equals(telaLogin.getjButtonCadastrar())){
             telaLogin();

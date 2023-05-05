@@ -1,39 +1,54 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import model.Pessoa;
 import service.ServicePerfil;
 
 import view.TelaLogin;
 import view.TelaPerfil;
+import view.TelaPrincipal;
 
 /**
  *
  * @author j_ped
  */
 public class ControlePerfil implements ActionListener{
-    private final TelaPerfil telaPerfil;
+    
     private ServicePerfil servicePerfil;
+    private Pessoa pessoaPerfil;
+    private TelaPrincipal telaPrincipal;
 
-    public ControlePerfil() {
-       telaPerfil = new TelaPerfil(null, true);
-        this.servicePerfil= new ServicePerfil(telaPerfil);
+ 
+    
+
+    
+
+    public ControlePerfil(TelaPrincipal telaPrincipal, Pessoa pessoa) {
+        this.telaPrincipal = telaPrincipal;
+        this.pessoaPerfil = pessoa;
         
-        servicePerfil.listar();
+        
+        
+        
+        TelaPerfil telaPerfil = new TelaPerfil(telaPrincipal, true);
+        
+        
+        this.servicePerfil= new ServicePerfil(telaPerfil, pessoaPerfil);
         telaPerfil.setVisible(true);
+        
         
         
     }
     
     
+    
+    
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
         
     }
     
