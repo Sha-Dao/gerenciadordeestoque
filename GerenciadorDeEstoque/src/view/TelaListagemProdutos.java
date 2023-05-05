@@ -69,7 +69,7 @@ public class TelaListagemProdutos extends JFrame{
  
        public Produto produto;
        
-       public PainelProduto(Produto produto){
+       public PainelProduto(Produto produto, ControleProduto controlerProduto){
             JPanel mainPanel = new JPanel();
             mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
 
@@ -110,10 +110,13 @@ public class TelaListagemProdutos extends JFrame{
             //Painel dos botões ------------------------------------------------------------|
             JPanel painelButoes = new JPanelProduto(new GridLayout(2, 1, 0, 5));
             painelButoes.setPreferredSize(new Dimension(100, 100));
-            JButtonProduto buttonEditar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Editar2.png")), produto.getId());
-            JButtonProduto buttonDeletar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Deletar2.png")), produto.getId());
+            JButtonProduto buttonEditar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Editar2.png")), produto.getId(), "editar");
+            JButtonProduto buttonDeletar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Deletar2.png")), produto.getId(), "deletar");
             painelButoes.add(buttonEditar);
             painelButoes.add(buttonDeletar);
+            
+            controleProduto.adicionarListener(buttonEditar);
+            controleProduto.adicionarListener(buttonDeletar);
             
 
             // adiciona os três painéis ao painel principal
@@ -162,15 +165,35 @@ public class TelaListagemProdutos extends JFrame{
    public class JButtonProduto extends JButton{
        
        private int produtoId;
+       private String tipoButton;
        
-       public JButtonProduto(javax.swing.ImageIcon icon, int produtoId){
+        public JButtonProduto(javax.swing.ImageIcon icon, int produtoId, String tipoButton){
+           this.tipoButton = tipoButton;
            this.produtoId = produtoId;
            setIcon(icon);
            //setOpaque(false);
            setBackground(new Color(86, 73, 158));
            setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
            setFocusable(false);
-       }
+        }
+       
+        public int getProdutoId() {
+            return produtoId;
+        }
+
+        public void setProdutoId(int produtoId) {
+            this.produtoId = produtoId;
+        }
+
+        public String getTipoButton() {
+            return tipoButton;
+        }
+
+        public void setTipoButton(String tipoButton) {
+            this.tipoButton = tipoButton;
+        }
+       
+       
    }
    
    public void mostrarProdutos(){
@@ -198,7 +221,7 @@ public class TelaListagemProdutos extends JFrame{
        //Adicionando os Produtos
        
        for (Produto produto : this.controleProduto.ListarProdutos()) {
-           this.mainPanel.add( new PainelProduto(produto));
+           this.mainPanel.add( new PainelProduto(produto, this.controleProduto));
        }
        
        this.getContentPane().revalidate();

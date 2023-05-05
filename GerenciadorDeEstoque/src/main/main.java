@@ -19,6 +19,7 @@ public class main {
     public static void main(String[] args) {
         //ControleLogin controleLogin = new ControleLogin();
         ControleProduto controleProduto = new ControleProduto();
+        controleProduto.IniciarTelaListagem();
     
     }
     

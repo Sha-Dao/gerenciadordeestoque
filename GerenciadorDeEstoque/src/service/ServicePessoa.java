@@ -95,17 +95,17 @@ public class ServicePessoa {
             int larguraOriginal = image.getWidth(null);
             int alturaOriginal = image.getHeight(null);
 
-           int larguraMaxima = 200;
-int alturaMaxima = 200;
-double proporcaoOriginal = (double) larguraOriginal / alturaOriginal;
+            int larguraMaxima = 200;
+            int alturaMaxima = 200;
+            double proporcaoOriginal = (double) larguraOriginal / alturaOriginal;
 
-int larguraNova = larguraMaxima;
-int alturaNova = (int) (larguraNova / proporcaoOriginal);
+            int larguraNova = larguraMaxima;
+            int alturaNova = (int) (larguraNova / proporcaoOriginal);
 
-if (alturaNova < alturaMaxima) {
-    alturaNova = alturaMaxima;
-    larguraNova = (int) (alturaNova * proporcaoOriginal);
-}
+            if (alturaNova < alturaMaxima) {
+                alturaNova = alturaMaxima;
+                larguraNova = (int) (alturaNova * proporcaoOriginal);
+            }
 
 
             // Redimensiona a imagem para a nova largura e altura
