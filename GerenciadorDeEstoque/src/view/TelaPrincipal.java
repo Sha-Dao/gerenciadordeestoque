@@ -26,6 +26,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
     public JButton getjButtonPerfil() {
         return jButtonPerfil;
     }
+
+    public JButton getjButtonAdicionar() {
+        return jButtonAdicionar;
+    }
+
+    public JButton getjButtonListar() {
+        return jButtonListar;
+    }
+
+    public JButton getjButtonLogoff() {
+        return jButtonLogoff;
+    }
+    
     
 
     /**
@@ -39,10 +52,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonListar = new javax.swing.JButton();
+        jButtonAdicionar = new javax.swing.JButton();
         jButtonPerfil = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonLogoff = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -53,25 +66,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(127, 108, 235));
 
-        jButton1.setBackground(new java.awt.Color(72, 69, 174));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Lista de Produtos");
+        jButtonListar.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonListar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonListar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonListar.setText("Lista de Produtos");
 
-        jButton2.setBackground(new java.awt.Color(72, 69, 174));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Adicionar Produtos");
+        jButtonAdicionar.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonAdicionar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonAdicionar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAdicionar.setText("Adicionar Produtos");
 
         jButtonPerfil.setBackground(new java.awt.Color(72, 69, 174));
         jButtonPerfil.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButtonPerfil.setForeground(new java.awt.Color(255, 255, 255));
         jButtonPerfil.setText("Dados Pessoais");
 
-        jButton4.setBackground(new java.awt.Color(72, 69, 174));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Sair");
+        jButtonLogoff.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonLogoff.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonLogoff.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonLogoff.setText("Sair");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -82,25 +95,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(156, 156, 156)
-                        .addComponent(jButton4)))
+                        .addComponent(jButtonLogoff)))
                 .addContainerGap(85, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(110, 110, 110)
-                .addComponent(jButton1)
+                .addComponent(jButtonListar)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(jButtonAdicionar)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonPerfil)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 662, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(jButtonLogoff)
                 .addGap(116, 116, 116))
         );
 
@@ -189,9 +202,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonAdicionar;
+    private javax.swing.JButton jButtonListar;
+    private javax.swing.JButton jButtonLogoff;
     private javax.swing.JButton jButtonPerfil;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

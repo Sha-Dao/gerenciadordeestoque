@@ -36,6 +36,8 @@ public class ControlePerfil implements ActionListener{
         
         
         this.servicePerfil= new ServicePerfil(telaPerfil, pessoaPerfil);
+        telaPerfil.getjButtonMudar().addActionListener(this);
+        telaPerfil.getjButtonSalvar().addActionListener(this);
         telaPerfil.setVisible(true);
         
         

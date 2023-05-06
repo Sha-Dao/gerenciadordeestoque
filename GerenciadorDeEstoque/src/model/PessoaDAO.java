@@ -29,6 +29,8 @@ public class PessoaDAO {
                     
             while (rs.next()){
                 pessoa.setId(rs.getInt("id"));
+                pessoa.setNome(rs.getString("nome"));
+                pessoa.setCpf(rs.getString("cpf"));
                 pessoa.setSenha (rs.getString("senha"));
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setEndereco(rs.getString("endereco"));

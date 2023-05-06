@@ -124,6 +124,7 @@ public class TelaCadastro extends javax.swing.JDialog {
         jLabelEmail.setText("EMAIL");
 
         jTextFieldNome.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldNome.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldNome.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldNome.setAlignmentX(2.0F);
         jTextFieldNome.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -151,10 +152,12 @@ public class TelaCadastro extends javax.swing.JDialog {
         jLabelLogin.setText("CADASTRO");
 
         jTextFieldEmail.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldEmail.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jTextFieldEndereco.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldEndereco.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldEndereco.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldEndereco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +167,7 @@ public class TelaCadastro extends javax.swing.JDialog {
         });
 
         jTextFieldTelefone.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldTelefone.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldTelefone.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTelefone.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
@@ -217,6 +221,7 @@ public class TelaCadastro extends javax.swing.JDialog {
         jLabelConfSenha.setText("CONFIRMAR SENHA");
 
         jPasswordFieldSenha.setBackground(new java.awt.Color(127, 108, 235));
+        jPasswordFieldSenha.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jPasswordFieldSenha.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 

@@ -2,7 +2,12 @@
 package service;
 
 import java.awt.Image;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import model.Pessoa;
@@ -26,14 +31,18 @@ public class ServicePerfil {
         this.pessoaService=pessoa;
         this.telaPerfil =  telaPerfil;
         this.pessoaDAO = new PessoaDAO();
-        listaDados(pessoaService);
+        try {
+            listaDados(pessoaService);
+        } catch (ParseException ex) {
+            Logger.getLogger(ServicePerfil.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
     
     
   
-    public void listaDados(Pessoa pessoa) { 
-       telaPerfil.getjTextFieldNome().setText(pessoa.getEmail());
+    public void listaDados(Pessoa pessoa) throws ParseException { 
+       telaPerfil.getjTextFieldNome().setText(pessoa.getNome());
        
        //adicionando imagem redimensionada
             byte[] imagemBytes = pessoa.getFoto();
@@ -63,7 +72,19 @@ public class ServicePerfil {
 
           
             telaPerfil.getjLabelFoto().setIcon(image);
-         
+      
+            telaPerfil.getjTextFieldEmail().setText(pessoa.getEmail());
+            telaPerfil.getjTextFieldEndereco().setText(pessoa.getEndereco());
+            
+            SimpleDateFormat formatador = new SimpleDateFormat("dd-MM-yyyy");
+            String formatoBR = formatador.format(pessoa.getDatanasc());
+            System.out.println(formatoBR);
+            
+            
+            
+            telaPerfil.getjFormattedTextFieldData().setText(formatoBR);
+            telaPerfil.getjTextFieldTelefone().setText(pessoa.getTelefone());
+            telaPerfil.getjTextFieldCPF().setText(pessoa.getCpf());
         
 
 
