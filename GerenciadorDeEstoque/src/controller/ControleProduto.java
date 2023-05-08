@@ -34,7 +34,7 @@ public class ControleProduto implements ActionListener{
         
     }
     
-    public void IniciarTelaListagem() {
+    public void iniciarTelaListagem() {
         this.telaListagemProdutos = new TelaListagemProdutos(this);
     }
     
@@ -43,12 +43,12 @@ public class ControleProduto implements ActionListener{
       
     }
     
-    public void IniciarTelaEditarProduto(int IdProduto){
+    public void iniciarTelaEditarProduto(int IdProduto){
         telaEditarProduto = new TelaEditarProduto(telaListagemProdutos, true, IdProduto);
         telaEditarProduto.setVisible(true);
     }
     
-    public void IniciarTelaCadastrarProduto(){
+    public void iniciarTelaCadastrarProduto(){
         telaCadastrarProduto = new TelaCadastrarProduto(null, true);
         telaCadastrarProduto.getjButtonSelecionarFoto().addActionListener(this);
         telaCadastrarProduto.setVisible(true);
@@ -70,7 +70,7 @@ public class ControleProduto implements ActionListener{
         if (source instanceof TelaListagemProdutos.JButtonProduto) {
             TelaListagemProdutos.JButtonProduto button = (TelaListagemProdutos.JButtonProduto) source;
             if (button.getTipoButton().equals("editar")){
-                IniciarTelaEditarProduto(button.getProdutoId());
+                iniciarTelaEditarProduto(button.getProdutoId());
                 
             }
             if (button.getTipoButton().equals("deletar")){

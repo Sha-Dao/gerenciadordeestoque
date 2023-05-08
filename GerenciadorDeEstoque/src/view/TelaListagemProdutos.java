@@ -6,6 +6,7 @@
 package view;
 
 import controller.ControleProduto;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -44,7 +45,7 @@ public class TelaListagemProdutos extends JFrame{
    public TelaListagemProdutos(ControleProduto controleProduto) {
       super("Tela Listagem Produtos"); // define o título da janela
       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      setSize(700, 600); 
+      setSize(1000, 800); 
       setExtendedState(JFrame.MAXIMIZED_BOTH);
       this.controleProduto = controleProduto;
       
@@ -220,8 +221,18 @@ public class TelaListagemProdutos extends JFrame{
        
        //Adicionando os Produtos
        
-       for (Produto produto : this.controleProduto.ListarProdutos()) {
-           this.mainPanel.add( new PainelProduto(produto, this.controleProduto));
+       if (!this.controleProduto.ListarProdutos().isEmpty()) {
+           for (Produto produto : this.controleProduto.ListarProdutos()) {
+               this.mainPanel.add(new PainelProduto(produto, this.controleProduto));
+           }
+       } else {
+           JPanel semProdutos = new JPanel();
+           semProdutos.setLayout(new FlowLayout());
+           semProdutos.setMaximumSize(new Dimension(600,600));
+           semProdutos.setBackground(new Color(72, 69, 150));
+           semProdutos.add(new JLabel(new ImageIcon(getClass().getResource("/imagens/nenhum-produto-correspondente.png"))));
+           
+           this.mainPanel.add(semProdutos);
        }
        
        this.getContentPane().revalidate();
