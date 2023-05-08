@@ -38,6 +38,9 @@ public class ControlePrincipal implements ActionListener{
         
         
         telaPrincipal.getjButtonPerfil().addActionListener(this);
+        telaPrincipal.getjButtonListar().addActionListener(this);
+        telaPrincipal.getjButtonAdicionar().addActionListener(this);
+        telaPrincipal.getjButtonLogoff().addActionListener(this);
     
         telaPrincipal.setVisible(true);
                 
@@ -55,10 +58,22 @@ public class ControlePrincipal implements ActionListener{
         if (e.getSource().equals(telaPrincipal.getjButtonPerfil())){
             ControlePerfil controlePerfil = new ControlePerfil(telaPrincipal, pessoaPrincipal);
             
-            
+        }
+        else if(e.getSource().equals(telaPrincipal.getjButtonAdicionar())){
+            ControleProduto controleProduto = new ControleProduto();
+            controleProduto.IniciarTelaCadastrarProduto();
             
         
         }
+        else if(e.getSource().equals(telaPrincipal.getjButtonListar())){
+            ControleProduto controleProduto = new ControleProduto();
+            controleProduto.IniciarTelaListagem();
+        }
+        else if (e.getSource().equals(telaPrincipal.getjButtonLogoff())){
+            telaPrincipal.dispose();
+            ControleLogin controleLogin = new ControleLogin();
+        }
+            
         
     }
     
