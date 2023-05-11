@@ -18,9 +18,11 @@ import model.Pessoa;
 public class main {
     
     public static void main(String[] args) {
-       //ControleLogin controleLogin = new ControleLogin();
-       ControleProduto controleProduto = new ControleProduto();
-       controleProduto.iniciarTelaListagem();
+       ControleLogin controleLogin = new ControleLogin();
+       //ControleProduto controleProduto = new ControleProduto();
+       //controleProduto.iniciarTelaListagem();
+       //controleProduto.iniciarTelaCadastrarProduto();
+ 
        
     
     }

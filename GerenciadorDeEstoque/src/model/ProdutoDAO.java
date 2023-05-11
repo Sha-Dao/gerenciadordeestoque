@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class ProdutoDAO {
     
     public void inserir(Produto produto){
-        String sql = "INSERT INTO `produto`(`nome`,`idtipo`, `quantidade`, `preco`) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO `produto`(`nome`,`idtipo`, `quantidade`, `preco`, `imagem`) VALUES (?, ?, ?, ?, ?)";
         PreparedStatement pst;
   
         try{
@@ -27,6 +27,7 @@ public class ProdutoDAO {
             pst.setInt(2, produto.getIdTipo());
             pst.setInt(3, produto.getQuantidade());
             pst.setDouble(4, produto.getPreco());
+            pst.setBytes(5, produto.getImagem());
             
             
             pst.execute();
@@ -43,16 +44,19 @@ public class ProdutoDAO {
     
     public void alterar(Produto produto){
         
-        String sql = "UPDATE produto SET nome = ?, idtipo = ?, quantidade = ?, preco = ? WHERE id = ?";
+        String sql = "UPDATE produto SET nome = ?, idtipo = ?, quantidade = ?, preco = ?, imagem = ? WHERE id = ?";
         
         PreparedStatement pst;
         try {
             pst = Conexao.getConexao().prepareStatement(sql);
+            System.out.println(produto.getImagem());
             pst.setString(1, produto.getNome());
             pst.setInt(2, produto.getIdTipo());
             pst.setInt(3, produto.getQuantidade());
-            pst.setDouble(4, produto.getPreco());
-            pst.setInt(5, produto.getId());
+            pst.setDouble(4, produto.getPreco());     
+            pst.setBytes(5, produto.getImagem());
+            pst.setInt(6, produto.getId());
+            
             pst.execute();
             pst.close();                
         } catch (SQLException ex) {
@@ -96,10 +100,10 @@ public class ProdutoDAO {
                 Produto produto = new Produto();
                 produto.setId(rs.getInt("id"));
                 produto.setNome(rs.getString("nome"));
-                produto.setIdTipo(rs.getInt("tipo"));
+                produto.setIdTipo(rs.getInt("idtipo"));
                 produto.setQuantidade(rs.getInt("quantidade"));
                 produto.setPreco(rs.getDouble("preco"));
-                //produto.setImagem(rs.getBlob("imagem")));
+                produto.setImagem(rs.getBytes("imagem"));
 
                 
                 lista.add(produto);

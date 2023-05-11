@@ -6,17 +6,13 @@
 package view;
 
 import controller.ControleProduto;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.LayoutManager;
-import java.util.ArrayList;
-import java.util.Iterator;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -38,8 +34,8 @@ public class TelaListagemProdutos extends JFrame{
     private JScrollPane scrollPane;
     private JPanel mainPanel;
     private ControleProduto controleProduto;
-    private ArrayList<JButtonProduto> listaButtonsDeletar;
-    private ArrayList<JButtonProduto> listaButtonsEditar;
+    private JTextField textField;
+    private JPanel textFieldPanel;
    
 
    public TelaListagemProdutos(ControleProduto controleProduto) {
@@ -54,7 +50,22 @@ public class TelaListagemProdutos extends JFrame{
       this.mainPanel.setLayout(new BoxLayout(this.mainPanel, BoxLayout.Y_AXIS));
       this.mainPanel.setBackground(new Color(72, 69, 174));
       
-      
+      this.textFieldPanel = new JPanel();
+      this.textFieldPanel.setPreferredSize(new Dimension(600, 40));
+      this.textFieldPanel.setMaximumSize(new Dimension(600, 40));
+      this.textField = new JTextField();
+      this.textField.setFont(new Font("Tahoma", 0, 14));
+      this.textField.setForeground(Color.WHITE);
+      textField.setBackground(new Color(127, 108, 235));
+      this.textField.addActionListener(this.controleProduto);
+      Border border = BorderFactory.createLineBorder(Color.BLACK, 0);
+      textField.setBorder(border);
+      textField.setPreferredSize(new Dimension(550, 20));
+      this.textFieldPanel.add(textField);
+      this.textFieldPanel.setBackground(new Color(127, 108, 235));
+      JLabel search = new JLabel();
+      search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png")));
+      this.textFieldPanel.add(search);
       
       
       
@@ -63,8 +74,10 @@ public class TelaListagemProdutos extends JFrame{
       add(this.scrollPane);
       setLocationRelativeTo(null);
       setVisible(true); // torna a janela visível
-      mostrarProdutos();
+      mostrarProdutos("");
    }
+
+    
    
    public class PainelProduto extends JPanel{
  
@@ -83,11 +96,15 @@ public class TelaListagemProdutos extends JFrame{
             painelImagemProduto.setPreferredSize(new Dimension(150, 100));
             painelImagemProduto.setBorder(BorderFactory.createEmptyBorder(5, 20, 5, 5));
             JLabel imagemLabel =  new JLabel();
-            ImageIcon icon = new ImageIcon(getClass().getResource("/imagens/jacare.jpeg"));
+            
+            ImageIcon icon = new ImageIcon(produto.getImagem());
+        
             Image imagem = icon.getImage().getScaledInstance(80, -1, Image.SCALE_SMOOTH);
             icon = new ImageIcon(imagem);
+            
             imagemLabel.setIcon(icon);
             imagemLabel.setPreferredSize(new Dimension(80,80));
+            imagemLabel.setMaximumSize(new Dimension(80,80));
             painelImagemProduto.add(imagemLabel);
             
             
@@ -111,13 +128,13 @@ public class TelaListagemProdutos extends JFrame{
             //Painel dos botões ------------------------------------------------------------|
             JPanel painelButoes = new JPanelProduto(new GridLayout(2, 1, 0, 5));
             painelButoes.setPreferredSize(new Dimension(100, 100));
-            JButtonProduto buttonEditar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Editar2.png")), produto.getId(), "editar");
-            JButtonProduto buttonDeletar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Deletar2.png")), produto.getId(), "deletar");
+            JButtonProduto buttonEditar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Editar2.png")), produto, "editar");
+            JButtonProduto buttonDeletar = new JButtonProduto(new javax.swing.ImageIcon(getClass().getResource("/imagens/Deletar2.png")), produto, "deletar");
             painelButoes.add(buttonEditar);
             painelButoes.add(buttonDeletar);
             
-            controleProduto.adicionarListener(buttonEditar);
-            controleProduto.adicionarListener(buttonDeletar);
+            controleProduto.adicionarActionListener(buttonEditar);
+            controleProduto.adicionarActionListener(buttonDeletar);
             
 
             // adiciona os três painéis ao painel principal
@@ -165,12 +182,12 @@ public class TelaListagemProdutos extends JFrame{
    
    public class JButtonProduto extends JButton{
        
-       private int produtoId;
+       private Produto produto;
        private String tipoButton;
        
-        public JButtonProduto(javax.swing.ImageIcon icon, int produtoId, String tipoButton){
+        public JButtonProduto(javax.swing.ImageIcon icon, Produto produto, String tipoButton){
            this.tipoButton = tipoButton;
-           this.produtoId = produtoId;
+           this.produto = produto;
            setIcon(icon);
            //setOpaque(false);
            setBackground(new Color(86, 73, 158));
@@ -178,12 +195,12 @@ public class TelaListagemProdutos extends JFrame{
            setFocusable(false);
         }
        
-        public int getProdutoId() {
-            return produtoId;
+        public Produto getProduto() {
+            return produto;
         }
 
-        public void setProdutoId(int produtoId) {
-            this.produtoId = produtoId;
+        public void setProdutoId(Produto produto) {
+            this.produto = produto;
         }
 
         public String getTipoButton() {
@@ -193,44 +210,41 @@ public class TelaListagemProdutos extends JFrame{
         public void setTipoButton(String tipoButton) {
             this.tipoButton = tipoButton;
         }
-       
-       
+  
    }
    
-   public void mostrarProdutos(){
+   
+   public void mostrarProdutos(String stringPesquisa){
        this.mainPanel.removeAll();
        this.mainPanel.add(Box.createRigidArea(new Dimension(0, 30))); // Adicionando espaçamento entre O textFieldPanel e topo da tela
       
-       JPanel textFieldPanel = new JPanel();
-       textFieldPanel.setPreferredSize(new Dimension(600, 40));
-       textFieldPanel.setMaximumSize(new Dimension(600, 40));
-       JTextField textField = new JTextField();
-       textField.setBackground(new Color(127, 108, 235));
-       Border border = BorderFactory.createLineBorder(Color.BLACK, 0);
-       textField.setBorder(border);
-       textField.setPreferredSize(new Dimension(550, 20));
-       textFieldPanel.add(textField);
-       textFieldPanel.setBackground(new Color(127, 108, 235));
-       JLabel search = new JLabel();
-       search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar.png")));
-       textFieldPanel.add(search);
-       this.mainPanel.add(textFieldPanel);
+ 
+       this.mainPanel.add(getTextFieldPanel());
       
        this.mainPanel.add(Box.createRigidArea(new Dimension(0, 50))); // Adicionando espaçamento entre O textFieldPanel e os Produtos
        
        
        //Adicionando os Produtos
        
-       if (!this.controleProduto.ListarProdutos().isEmpty()) {
+       if (this.controleProduto.ListarProdutos().size() != 0) {
            for (Produto produto : this.controleProduto.ListarProdutos()) {
-               this.mainPanel.add(new PainelProduto(produto, this.controleProduto));
+               if(stringPesquisa == "" || produto.getNome().toLowerCase().contains(stringPesquisa.toLowerCase())){
+                   this.mainPanel.add(new PainelProduto(produto, this.controleProduto));    
+               }
            }
        } else {
            JPanel semProdutos = new JPanel();
            semProdutos.setLayout(new FlowLayout());
            semProdutos.setMaximumSize(new Dimension(600,600));
-           semProdutos.setBackground(new Color(72, 69, 150));
-           semProdutos.add(new JLabel(new ImageIcon(getClass().getResource("/imagens/nenhum-produto-correspondente.png"))));
+           semProdutos.setBackground(new Color(127, 108, 235));
+           //semProdutos.add(new JLabel(new ImageIcon(getClass().getResource("imagens/sem-produtos.png"))));
+           JLabel label = new JLabel("Você ainda não tem produtos cadastrados");
+           semProdutos.add(Box.createRigidArea(new Dimension(0, 600)));
+
+           label.setFont(new Font("Tahoma", 1, 24));
+           label.setForeground(Color.WHITE);
+           semProdutos.add(label);
+           semProdutos.setBorder(BorderFactory.createLineBorder(Color.WHITE, 10));
            
            this.mainPanel.add(semProdutos);
        }
@@ -239,4 +253,18 @@ public class TelaListagemProdutos extends JFrame{
        this.getContentPane().repaint();
    }
    
+    public JTextField getTextField() {
+        return textField;
+    }
+
+    public void setTextField(JTextField textField) {
+        this.textField = textField;
+    }
+    public JPanel getTextFieldPanel() {
+        return textFieldPanel;
+    }
+
+    public void setTextFieldPanel(JPanel textFieldPanel) {
+        this.textFieldPanel = textFieldPanel;
+    }
 }

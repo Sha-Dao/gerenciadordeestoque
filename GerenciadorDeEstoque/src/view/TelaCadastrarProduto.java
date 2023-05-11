@@ -21,6 +21,7 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
      */
     public TelaCadastrarProduto(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -39,16 +40,16 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         jTextFieldNome = new javax.swing.JTextField();
         jLabelQuantidade = new javax.swing.JLabel();
         jLabelPreco = new javax.swing.JLabel();
-        jTextFieldNome2 = new javax.swing.JTextField();
+        jTextFieldPreco = new javax.swing.JTextField();
         jSpinnerQuantidade = new javax.swing.JSpinner();
         jTextFieldTipo = new javax.swing.JTextField();
         jLabelTipo = new javax.swing.JLabel();
         jLabelImagemProduto = new javax.swing.JLabel();
         jButtonSelecionarFoto = new javax.swing.JButton();
+        jButtonCadastrarProduto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(72, 69, 174));
-        setPreferredSize(new java.awt.Dimension(796, 654));
 
         jPanel1.setBackground(new java.awt.Color(72, 69, 174));
         jPanel1.setPreferredSize(new java.awt.Dimension(796, 654));
@@ -77,11 +78,11 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         jLabelPreco.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPreco.setText("PREÇO");
 
-        jTextFieldNome2.setBackground(new java.awt.Color(127, 108, 235));
-        jTextFieldNome2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jTextFieldNome2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldPreco.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldPreco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNome2ActionPerformed(evt);
+                jTextFieldPrecoActionPerformed(evt);
             }
         });
 
@@ -99,12 +100,24 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         jLabelTipo.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTipo.setText("TIPO");
 
-        jLabelImagemProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/gerens-logo.png"))); // NOI18N
+        jLabelImagemProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produto-padrao1.png"))); // NOI18N
+        jLabelImagemProduto.setMaximumSize(new java.awt.Dimension(200, 200));
+        jLabelImagemProduto.setPreferredSize(new java.awt.Dimension(200, 200));
 
         jButtonSelecionarFoto.setBackground(new java.awt.Color(127, 108, 235));
         jButtonSelecionarFoto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButtonSelecionarFoto.setForeground(new java.awt.Color(255, 255, 255));
         jButtonSelecionarFoto.setText("SELECIONAR FOTO");
+
+        jButtonCadastrarProduto.setBackground(new java.awt.Color(127, 108, 235));
+        jButtonCadastrarProduto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonCadastrarProduto.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCadastrarProduto.setText("Cadastrar Produto");
+        jButtonCadastrarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCadastrarProdutoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -113,30 +126,29 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(81, 81, 81)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jSpinnerQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonSelecionarFoto)
-                        .addGap(91, 91, 91))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabelQuantidade)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNome)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabelPreco)
-                                .addComponent(jTextFieldNome2)
-                                .addComponent(jTextFieldTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                                .addComponent(jLabelTipo)
-                                .addComponent(jTextFieldNome)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelImagemProduto)
-                        .addGap(35, 35, 35))))
+                    .addComponent(jSpinnerQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNome)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabelPreco)
+                        .addComponent(jTextFieldPreco)
+                        .addComponent(jTextFieldTipo, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                        .addComponent(jLabelTipo)
+                        .addComponent(jTextFieldNome))
+                    .addComponent(jLabelQuantidade))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonSelecionarFoto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelImagemProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(91, 91, 91))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(117, Short.MAX_VALUE)
-                .addComponent(jLabelTitulo)
-                .addGap(104, 104, 104))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabelTitulo)
+                        .addGap(104, 104, 104))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonCadastrarProduto)
+                        .addGap(286, 286, 286))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,8 +168,8 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(jLabelPreco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldNome2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelImagemProduto))
+                        .addComponent(jTextFieldPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelImagemProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -167,7 +179,9 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jButtonSelecionarFoto)))
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(jButtonCadastrarProduto)
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -179,13 +193,25 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
-    private void jTextFieldNome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNome2ActionPerformed
+    private void jTextFieldPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNome2ActionPerformed
+    }//GEN-LAST:event_jTextFieldPrecoActionPerformed
 
     private void jTextFieldTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTipoActionPerformed
+
+    private void jButtonCadastrarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCadastrarProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCadastrarProdutoActionPerformed
+
+    public JButton getjButtonCadastrarProduto() {
+        return jButtonCadastrarProduto;
+    }
+
+    public JButton getjButtonSelecionarFoto() {
+        return jButtonSelecionarFoto;
+    }
 
     public JLabel getjLabelImagemProduto() {
         return jLabelImagemProduto;
@@ -199,17 +225,16 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         return jTextFieldNome;
     }
 
-    public JTextField getjTextFieldNome2() {
-        return jTextFieldNome2;
+    public JTextField getjTextFieldPreco() {
+        return jTextFieldPreco;
     }
 
     public JTextField getjTextFieldTipo() {
         return jTextFieldTipo;
     }
 
-    public JButton getjButtonSelecionarFoto() {
-        return jButtonSelecionarFoto;
-    }
+    
+    
     
     /**
      * @param args the command line arguments
@@ -255,6 +280,7 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonCadastrarProduto;
     private javax.swing.JButton jButtonSelecionarFoto;
     private javax.swing.JLabel jLabelImagemProduto;
     private javax.swing.JLabel jLabelNome;
@@ -265,7 +291,7 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSpinner jSpinnerQuantidade;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldNome2;
+    private javax.swing.JTextField jTextFieldPreco;
     private javax.swing.JTextField jTextFieldTipo;
     // End of variables declaration//GEN-END:variables
 }

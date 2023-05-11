@@ -20,8 +20,7 @@ public class Conexao {
  public static Connection getConexao(){
      if (conexao==null){
          try{
-
-             conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/gerenciador", "root", "#Moriarty4419@");
+             conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/gerenciador", "", "");
 
              System.out.println("Conectou com o banco");
          }catch (SQLException e){

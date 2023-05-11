@@ -54,20 +54,19 @@ public class ControlePrincipal implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
         if (e.getSource().equals(telaPrincipal.getjButtonPerfil())){
             ControlePerfil controlePerfil = new ControlePerfil(telaPrincipal, pessoaPrincipal);
             
         }
         else if(e.getSource().equals(telaPrincipal.getjButtonAdicionar())){
             ControleProduto controleProduto = new ControleProduto();
-            controleProduto.IniciarTelaCadastrarProduto();
+            controleProduto.iniciarTelaCadastrarProduto();
             
         
         }
         else if(e.getSource().equals(telaPrincipal.getjButtonListar())){
             ControleProduto controleProduto = new ControleProduto();
-            controleProduto.IniciarTelaListagem();
+            controleProduto.iniciarTelaListagem();
         }
         else if (e.getSource().equals(telaPrincipal.getjButtonLogoff())){
             telaPrincipal.dispose();
