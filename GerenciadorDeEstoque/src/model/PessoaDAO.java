@@ -133,7 +133,90 @@ public class PessoaDAO {
         
         return lista;  
     }
-    
+        public void alterar(Pessoa pessoa){
+            String sql = "UPDATE pessoa SET nome = ?, email = ?, endereco = ?, cpf = ?, telefone = ?, datanasc = ?, foto = "
+                    + "? WHERE id = ?";
+        
+        PreparedStatement pst;
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            pst.setString(1, pessoa.getNome());
+            pst.setString(2, pessoa.getEmail());
+            pst.setString(3, pessoa.getEndereco());
+            pst.setString(4, pessoa.getCpf());
+            pst.setString(5, pessoa.getTelefone());
+            pst.setDate(6, pessoa.getDatanasc());
+            pst.setBytes(7, pessoa.getFoto());
+      
+            pst.setInt(8, pessoa.getId());
+            pst.execute();
+            pst.close();
+            
+            JOptionPane.showMessageDialog(null, "Dados atualizados!");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Não foi possível atualizar os dados!");
+            System.out.println(ex);
+        }
+        }
+        
+        
+         public void alterarSenha(Pessoa pessoa){
+             String sql = "UPDATE pessoa SET senha = ? WHERE email LIKE ?";
+             PreparedStatement pst;
+             
+             try {
+                pst = Conexao.getConexao().prepareStatement(sql);
+                
+                pst.setString(1, pessoa.getSenha());
+                pst.setString(2, pessoa.getEmail());
+               
+                pst.execute();
+                pst.close();
+                
+     
+             }catch (SQLException ex) {
+                 JOptionPane.showMessageDialog(null, "Não foi possível atualizar a senha!");
+                 System.out.println(ex);
+                
+                 
+                 
+             
+             
+         
+         }
+            
+        
+         }
+         public boolean verificarSenhaAntiga(String senhaNova, int id) {
+             Pessoa pessoa = new Pessoa();
+                String sql = "SELECT * FROM pessoa WHERE senha = md5(?) AND id = ?";
+                PreparedStatement pst;
+
+                try {
+                    pst = Conexao.getConexao().prepareStatement(sql);
+                    pst.setString(1, senhaNova);
+                    pst.setInt(2, id);
+                    ResultSet rs = pst.executeQuery();
+                    pst.close();
+                    while (rs.next()){
+                        
+                        pessoa.setId(id);
+                    
+                    }
+                    if (pessoa.getId()>0){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                    
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(null, "Erro ao verificar senha antiga!");
+                    System.out.println(ex);
+                }
+                return false;
+            }
+
 
     }
 

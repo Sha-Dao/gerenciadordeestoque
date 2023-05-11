@@ -23,6 +23,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }
 
+    public JButton getjButtonDeletar() {
+        return jButtonDeletar;
+    }
+    
+
     public JButton getjButtonPerfil() {
         return jButtonPerfil;
     }
@@ -56,6 +61,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonAdicionar = new javax.swing.JButton();
         jButtonPerfil = new javax.swing.JButton();
         jButtonLogoff = new javax.swing.JButton();
+        jButtonDeletar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
@@ -86,6 +92,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonLogoff.setForeground(new java.awt.Color(255, 255, 255));
         jButtonLogoff.setText("Sair");
 
+        jButtonDeletar.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonDeletar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButtonDeletar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonDeletar.setText("Deletar Perfil");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -97,7 +108,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonListar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jButtonPerfil, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonDeletar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(156, 156, 156)
                         .addComponent(jButtonLogoff)))
@@ -112,7 +124,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jButtonAdicionar)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonPerfil)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 662, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonDeletar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonLogoff)
                 .addGap(116, 116, 116))
         );
@@ -147,7 +161,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -203,6 +217,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAdicionar;
+    private javax.swing.JButton jButtonDeletar;
     private javax.swing.JButton jButtonListar;
     private javax.swing.JButton jButtonLogoff;
     private javax.swing.JButton jButtonPerfil;

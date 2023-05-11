@@ -7,7 +7,10 @@ package controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import model.Pessoa;
+import model.PessoaDAO;
+import service.ServicePessoa;
 import view.TelaPrincipal;
 
 /**
@@ -41,7 +44,7 @@ public class ControlePrincipal implements ActionListener{
         telaPrincipal.getjButtonListar().addActionListener(this);
         telaPrincipal.getjButtonAdicionar().addActionListener(this);
         telaPrincipal.getjButtonLogoff().addActionListener(this);
-    
+        telaPrincipal.getjButtonDeletar().addActionListener(this);
         telaPrincipal.setVisible(true);
                 
         
@@ -71,6 +74,21 @@ public class ControlePrincipal implements ActionListener{
         else if (e.getSource().equals(telaPrincipal.getjButtonLogoff())){
             telaPrincipal.dispose();
             ControleLogin controleLogin = new ControleLogin();
+        }
+        else if(e.getSource().equals(telaPrincipal.getjButtonDeletar())){
+            
+            if (JOptionPane.showConfirmDialog(telaPrincipal, 
+                    "Deseja realmente excluir seu perfil? Os dados não poderão ser recuperados!", "Confirmação de exclusão", 
+                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == 0){
+            
+                PessoaDAO pessoaDAO = new PessoaDAO();
+                pessoaDAO.excluir(pessoaPrincipal);
+                telaPrincipal.dispose();
+                ControleLogin controleLogin = new ControleLogin();
+                
+            }
+             
+        
         }
             
         

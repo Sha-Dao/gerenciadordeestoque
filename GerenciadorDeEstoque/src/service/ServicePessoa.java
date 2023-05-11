@@ -6,8 +6,10 @@
 package service;
 
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -62,21 +65,40 @@ public class ServicePessoa {
 
             pessoa.setDatanasc(sqlDate);
            
-            pessoa.setDatanasc(sqlDate);
+           
             
             pessoa.setCpf(telaPessoa.getjFormattedTextFieldCPF().getText().replaceAll("[\\.-]", ""));
             pessoa.setTelefone(telaPessoa.getjTextFieldTelefone().getText());
             pessoa.setSenha(telaPessoa.getjPasswordFieldSenha().getText());
             
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(imagem, "jpg", baos);
-            byte[] fotoEmBytes = baos.toByteArray();
-            pessoa.setFoto(fotoEmBytes);
-
-            pessoaDAO.inserir(pessoa);
+            if(imagem!=null){
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ImageIO.write(imagem, "jpg", baos);
+                byte[] fotoEmBytes = baos.toByteArray();
+                pessoa.setFoto(fotoEmBytes);
+               
             
-     
+            
+            }else{
+                Icon icon = telaPessoa.getjLabelImagem().getIcon();
+                Image image = new BufferedImage(icon.getIconWidth(), icon.getIconHeight(), BufferedImage.TYPE_INT_ARGB);
+                Graphics2D g2d = (Graphics2D) image.getGraphics();
+                icon.paintIcon(null, g2d, 0, 0);
+                g2d.dispose();
+
+                ImageIcon iconImage = new ImageIcon(image);
+                Image imagem = iconImage.getImage();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ImageIO.write((RenderedImage) imagem, "jpg", baos);
+                byte[] fotoEmBytes = baos.toByteArray();
+                pessoa.setFoto(fotoEmBytes);
+                JOptionPane.showMessageDialog(null, "OBS: É recomendável que você adicione uma foto de perfil!");
+              
+            
+            }
+            pessoaDAO.inserir(pessoa);
     }
+   
     
      public void imagem(){
          

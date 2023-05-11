@@ -71,16 +71,21 @@ public class ControlePessoa implements ActionListener, KeyListener {
                 
                 JOptionPane.showMessageDialog(null, "Dados cadastrados");
                 telaPessoa.dispose();
-                TelaCadastro telaPessoa = new TelaCadastro(null, true);
-                telaPessoa.setVisible(true);
+                
         
                 
             }else {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
+                telaPessoa.dispose();
+                TelaCadastro telaPessoa = new TelaCadastro(null, true);
+                telaPessoa.setVisible(true);
         
             }
             }else{
                     JOptionPane.showMessageDialog(null, "As senhas digitadas não coincidem");
+                    telaPessoa.dispose();
+                    TelaCadastro telaPessoa = new TelaCadastro(null, true);
+                    telaPessoa.setVisible(true);
                  
             }
             
@@ -88,14 +93,18 @@ public class ControlePessoa implements ActionListener, KeyListener {
             }
         
             if(e.getSource().equals(telaPessoa.getjButtonFoto())){
-                this.servicePessoa.imagem();
+               this.servicePessoa.imagem();
+                    
+                
+                
                 
             }
     }
 
 
     private void cadastrar() throws ParseException, IOException {
-        servicePessoa.cadastrar(); 
+      servicePessoa.cadastrar();
+      
         
     }
 
