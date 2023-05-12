@@ -16,6 +16,8 @@ import view.TelaLogin;
  * @author j_ped
  */
 public class ServiceLogin {
+    
+    //criacao das variaveis a serem utilizadas
     private TelaLogin telaLogin;
     private PessoaDAO pessoaDAO;
     private Pessoa pessoaLogin;
@@ -30,14 +32,18 @@ public class ServiceLogin {
     
 
     public ServiceLogin(TelaLogin tela) {
+        //as variaveis recebem o parametro passado ao Service
         this.telaLogin = tela;
         this.pessoaDAO = new PessoaDAO();
     }
     
+    
     public void entrar() {
+        //atribui o valor retornado por pessoaDAO a uma varivael pessoaLogin
        pessoaLogin = pessoaDAO.acesso(telaLogin.getjTextFieldUsuario().getText(), String.valueOf(telaLogin.
                 getjPasswordFieldSenha().getPassword()));
         
+       //checa se pessoaLogin recebeu algum valor do id, permitindo ou não o acesso
         if (pessoaLogin.getId() > 0) {
             
             JOptionPane.showMessageDialog(telaLogin,"Login feito com sucesso!");

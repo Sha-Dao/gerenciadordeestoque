@@ -27,6 +27,7 @@ public class TelaCadastro extends javax.swing.JDialog {
         
     }
 
+    //metodos getters e setters
     public JButton getjButtonFoto() {
         return jButtonFoto;
     }
@@ -155,11 +156,13 @@ public class TelaCadastro extends javax.swing.JDialog {
         jTextFieldEmail.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldEmail.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldEmail.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jTextFieldEndereco.setBackground(new java.awt.Color(127, 108, 235));
         jTextFieldEndereco.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldEndereco.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldEndereco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldEndereco.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldEndereco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEnderecoActionPerformed(evt);
@@ -170,6 +173,7 @@ public class TelaCadastro extends javax.swing.JDialog {
         jTextFieldTelefone.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldTelefone.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTelefone.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldTelefone.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabelCPF.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelCPF.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,6 +192,7 @@ public class TelaCadastro extends javax.swing.JDialog {
             ex.printStackTrace();
         }
         jFormattedTextFieldDataNasc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldDataNasc.setCaretColor(new java.awt.Color(255, 255, 255));
         jFormattedTextFieldDataNasc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldDataNascActionPerformed(evt);
@@ -203,6 +208,7 @@ public class TelaCadastro extends javax.swing.JDialog {
             ex.printStackTrace();
         }
         jFormattedTextFieldCPF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldCPF.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabelTelefone.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelTelefone.setForeground(new java.awt.Color(255, 255, 255));
@@ -224,10 +230,12 @@ public class TelaCadastro extends javax.swing.JDialog {
         jPasswordFieldSenha.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jPasswordFieldSenha.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPasswordFieldSenha.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jPasswordFieldConfSenha.setBackground(new java.awt.Color(127, 108, 235));
         jPasswordFieldConfSenha.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldConfSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPasswordFieldConfSenha.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jLabelImagem.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/perfil-imagem.png"))); // NOI18N

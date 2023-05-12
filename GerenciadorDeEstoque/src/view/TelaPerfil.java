@@ -138,6 +138,7 @@ public class TelaPerfil extends javax.swing.JDialog {
         jTextFieldCPF.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldCPF.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldCPF.setBorder(null);
+        jTextFieldCPF.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldCPF.setDisabledTextColor(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -205,6 +206,7 @@ public class TelaPerfil extends javax.swing.JDialog {
             ex.printStackTrace();
         }
         jFormattedTextFieldData.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jFormattedTextFieldData.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jButtonMudar.setBackground(new java.awt.Color(127, 108, 235));
         jButtonMudar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

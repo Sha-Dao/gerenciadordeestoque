@@ -51,8 +51,11 @@ public class ServicePerfil {
     }
     
     
-  
+    
+  //metodo que vai atribuir o valor de pessoa aos texts fields
     public void listaDados(Pessoa pessoa) throws ParseException { 
+       
+   
        telaPerfil.getjTextFieldNome().setText(pessoa.getNome());
        
        //adicionando imagem redimensionada
@@ -61,7 +64,7 @@ public class ServicePerfil {
             
             
            
-           
+         //redimensiona a imagem mantendo a proporção original
             int larguraOriginal = imagemBD.getIconWidth();
             int alturaOriginal = imagemBD.getIconWidth();
 
@@ -106,6 +109,7 @@ public class ServicePerfil {
     
   
        public Pessoa salvar(TelaPerfil telaPerfil) throws ParseException, IOException{
+           //salva os dados digitados na tela
            PessoaDAO pessoaDAO= new PessoaDAO();
            Pessoa pessoa = new Pessoa();
            try{
@@ -151,8 +155,9 @@ public class ServicePerfil {
        }
        
        
-              
+       //metodo de escolha da foto a partir do jfilechooser
        public void imagem(){
+           
            
          
         JFileChooser fileChooser = new JFileChooser();

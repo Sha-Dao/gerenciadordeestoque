@@ -72,6 +72,7 @@ public class TelaEditarProduto extends javax.swing.JDialog {
         jTextFieldNome.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldNome.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldNome.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
@@ -86,6 +87,7 @@ public class TelaEditarProduto extends javax.swing.JDialog {
         jTextFieldTipo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldTipo.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTipo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldTipo.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldTipoActionPerformed(evt);
@@ -100,6 +102,7 @@ public class TelaEditarProduto extends javax.swing.JDialog {
         jTextFieldPreco.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldPreco.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldPreco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jTextFieldPreco.setCaretColor(new java.awt.Color(255, 255, 255));
         jTextFieldPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPrecoActionPerformed(evt);

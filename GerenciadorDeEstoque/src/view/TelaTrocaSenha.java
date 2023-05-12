@@ -89,11 +89,13 @@ public class TelaTrocaSenha extends javax.swing.JDialog {
         jPasswordFieldSenhaNova.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jPasswordFieldSenhaNova.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldSenhaNova.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPasswordFieldSenhaNova.setCaretColor(new java.awt.Color(255, 255, 255));
 
         jPasswordFieldConfirmacao.setBackground(new java.awt.Color(127, 108, 235));
         jPasswordFieldConfirmacao.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jPasswordFieldConfirmacao.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldConfirmacao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jPasswordFieldConfirmacao.setCaretColor(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

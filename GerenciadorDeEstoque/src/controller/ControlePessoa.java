@@ -29,13 +29,14 @@ public class ControlePessoa implements ActionListener, KeyListener {
     
     private final TelaCadastro telaPessoa;
     private ServicePessoa servicePessoa;
+    private TelaLogin telaLogin;
 
     
     public ControlePessoa(TelaLogin telaLogin){
         
         //instanciando as telas
             telaPessoa = new TelaCadastro(null, true);
-         
+            this.telaLogin =  telaLogin;
          
             servicePessoa = new ServicePessoa(telaPessoa);
         
@@ -77,8 +78,7 @@ public class ControlePessoa implements ActionListener, KeyListener {
             }else {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos");
                 telaPessoa.dispose();
-                TelaCadastro telaPessoa = new TelaCadastro(null, true);
-                telaPessoa.setVisible(true);
+                ControlePessoa controlePessoa = new ControlePessoa(telaLogin);
         
             }
             }else{
