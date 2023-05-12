@@ -86,9 +86,13 @@ public class TelaTrocaSenha extends javax.swing.JDialog {
         jButtonSair.setText("Sair");
 
         jPasswordFieldSenhaNova.setBackground(new java.awt.Color(127, 108, 235));
+        jPasswordFieldSenhaNova.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPasswordFieldSenhaNova.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldSenhaNova.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jPasswordFieldConfirmacao.setBackground(new java.awt.Color(127, 108, 235));
+        jPasswordFieldConfirmacao.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jPasswordFieldConfirmacao.setForeground(new java.awt.Color(255, 255, 255));
         jPasswordFieldConfirmacao.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -110,7 +114,6 @@ public class TelaTrocaSenha extends javax.swing.JDialog {
                 .addGap(6, 6, 6)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPasswordFieldSenhaNova)
                             .addComponent(jPasswordFieldConfirmacao))

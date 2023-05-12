@@ -63,6 +63,8 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         jLabelNome.setText("NOME");
 
         jTextFieldNome.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldNome.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextFieldNome.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +81,8 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         jLabelPreco.setText("PREÇO");
 
         jTextFieldPreco.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldPreco.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextFieldPreco.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldPreco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,9 +90,12 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
             }
         });
 
+        jSpinnerQuantidade.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jSpinnerQuantidade.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jTextFieldTipo.setBackground(new java.awt.Color(127, 108, 235));
+        jTextFieldTipo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
+        jTextFieldTipo.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTipo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,8 +108,6 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
         jLabelTipo.setText("TIPO");
 
         jLabelImagemProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produto-padrao1.png"))); // NOI18N
-        jLabelImagemProduto.setMaximumSize(new java.awt.Dimension(200, 200));
-        jLabelImagemProduto.setPreferredSize(new java.awt.Dimension(200, 200));
 
         jButtonSelecionarFoto.setBackground(new java.awt.Color(127, 108, 235));
         jButtonSelecionarFoto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -169,7 +174,7 @@ public class TelaCadastrarProduto extends javax.swing.JDialog {
                         .addComponent(jLabelPreco)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabelImagemProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelImagemProduto))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)

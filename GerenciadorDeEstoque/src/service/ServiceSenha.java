@@ -23,19 +23,20 @@ import view.TelaTrocaSenha;
 public class ServiceSenha {
     
     private String senhaNova;
-    private PessoaDAO pessoaDAO;
-    private Pessoa pessoaServiceSenha;
     private String senhaAntiga;
     private TelaTrocaSenha telaTrocaSenha;
     private Pessoa pessoa;
+    
+    
     public ServiceSenha(Pessoa pessoa) {
+        
+        //atribui pessoa a variavel pessoa
         this.telaTrocaSenha =  this.telaTrocaSenha;
-        this.senhaNova = senhaNova;
-        this.senhaAntiga =  senhaAntiga;
         this.pessoa = pessoa;
         
     }
     
+    //pega os valores recebidos no construtor do Service e adiciona ao metodo alterar senha do PessoaDAO
     public void alterarSenha(){
         PessoaDAO pessoaDAO = new PessoaDAO();
         pessoaDAO.alterarSenha(pessoa);

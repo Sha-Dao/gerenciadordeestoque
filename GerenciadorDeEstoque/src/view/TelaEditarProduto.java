@@ -69,7 +69,7 @@ public class TelaEditarProduto extends javax.swing.JDialog {
         jLabel2.setText("NOME");
 
         jTextFieldNome.setBackground(new java.awt.Color(127, 108, 235));
-        jTextFieldNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldNome.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldNome.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldNome.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class TelaEditarProduto extends javax.swing.JDialog {
         jLabel3.setText("TIPO");
 
         jTextFieldTipo.setBackground(new java.awt.Color(127, 108, 235));
-        jTextFieldTipo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldTipo.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldTipo.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldTipo.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldTipo.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +97,7 @@ public class TelaEditarProduto extends javax.swing.JDialog {
         jLabel4.setText("QUANTIDADE");
 
         jTextFieldPreco.setBackground(new java.awt.Color(127, 108, 235));
-        jTextFieldPreco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextFieldPreco.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
         jTextFieldPreco.setForeground(new java.awt.Color(255, 255, 255));
         jTextFieldPreco.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jTextFieldPreco.addActionListener(new java.awt.event.ActionListener() {
@@ -109,6 +109,8 @@ public class TelaEditarProduto extends javax.swing.JDialog {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("PREÇO");
+
+        jSpinnerQuantidade.setFont(new java.awt.Font("Tahoma", 0, 15)); // NOI18N
 
         jLabelFotoProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/produto-padrao.png"))); // NOI18N
         jLabelFotoProduto.setPreferredSize(new java.awt.Dimension(200, 200));

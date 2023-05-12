@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class PessoaDAO {
 
+     //verifica se existe determinado usuario no banco e retorna todos seus dados se for
     public Pessoa acesso (String email, String senha){
         String sql = "Select * FROM pessoa WHERE email = ? AND senha= md5(?)";
         Pessoa pessoa = new Pessoa();
@@ -48,6 +49,8 @@ public class PessoaDAO {
         return pessoa;
     }
     
+    //cadastro de pessoas
+    
     public void inserir (Pessoa pessoa){
         String sql = "INSERT INTO `pessoa`(`nome`,`datanasc`,`cpf`,`endereco`,`telefone`, `email`, `senha`, `foto`) VALUES(?, ?, ?, ?, ?, ?, md5(?),?)";
         PreparedStatement pst;
@@ -78,7 +81,7 @@ public class PessoaDAO {
            
     }
 
-
+    //exclusao da pessoa que estiver o id digitado
      public boolean excluir(Pessoa pessoa){
             
         String sql = "DELETE FROM pessoa WHERE id = ?";
@@ -101,6 +104,8 @@ public class PessoaDAO {
         return true;
 
    }
+     
+     //lista os dados de pessoa do Banco de Dados
       public ArrayList<Pessoa> listar(){
         String sql = "SELECT * FROM pessoa ORDER BY nome,cpf";
         
@@ -133,6 +138,8 @@ public class PessoaDAO {
         
         return lista;  
     }
+      
+      //atualiza tudo menos a senha do usuario na telaPerfil
         public void alterar(Pessoa pessoa){
             String sql = "UPDATE pessoa SET nome = ?, email = ?, endereco = ?, cpf = ?, telefone = ?, datanasc = ?, foto = "
                     + "? WHERE id = ?";
@@ -160,8 +167,9 @@ public class PessoaDAO {
         }
         
         
+        //altera a senha digitada no TelaTrocaSenha
          public void alterarSenha(Pessoa pessoa){
-             String sql = "UPDATE pessoa SET senha = ? WHERE email LIKE ?";
+             String sql = "UPDATE pessoa SET senha = md5(?) WHERE email LIKE ?";
              PreparedStatement pst;
              
              try {
@@ -187,6 +195,8 @@ public class PessoaDAO {
             
         
          }
+         //verifica a senha a partir de parametros passados. OBS: em andamento...
+         
          public boolean verificarSenhaAntiga(String senhaNova, int id) {
              Pessoa pessoa = new Pessoa();
                 String sql = "SELECT * FROM pessoa WHERE senha = md5(?) AND id = ?";

@@ -92,7 +92,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonLogoff.setForeground(new java.awt.Color(255, 255, 255));
         jButtonLogoff.setText("Sair");
 
-        jButtonDeletar.setBackground(new java.awt.Color(72, 69, 174));
+        jButtonDeletar.setBackground(new java.awt.Color(224, 45, 45));
         jButtonDeletar.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButtonDeletar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDeletar.setText("Deletar Perfil");
@@ -131,7 +131,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGap(116, 116, 116))
         );
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("GERENCIADOR DE ESTOQUE");
 
@@ -147,19 +147,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(180, 180, 180)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(439, 439, 439)
-                        .addComponent(jLabel1)))
-                .addContainerGap(198, Short.MAX_VALUE))
+                        .addComponent(jLabel2)
+                        .addContainerGap(198, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(286, 286, 286))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
+                .addGap(149, 149, 149)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addContainerGap(78, Short.MAX_VALUE))
         );

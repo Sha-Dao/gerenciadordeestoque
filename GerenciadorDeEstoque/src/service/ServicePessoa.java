@@ -43,12 +43,15 @@ public class ServicePessoa {
 
 
     public ServicePessoa(TelaCadastro tela) {
+        //pessoaDAO e data são instanciados e telaPessoa recebe o atributo de tela
  
         this.pessoaDAO = new PessoaDAO();
         this.telaPessoa = tela;
         this.data = new Date();
 
     }
+    
+    //salva os valores digitados nos texts fields utilizando o pessoaDAO passsando como parâmetro o objeto pessoa
     public void cadastrar() throws ParseException, IOException {
        
         Pessoa pessoa = new Pessoa();
@@ -100,6 +103,7 @@ public class ServicePessoa {
     }
    
     
+    //escolha da imagem utilizando o jfilechooser
      public void imagem(){
          
         JFileChooser fileChooser = new JFileChooser();
@@ -147,18 +151,7 @@ public class ServicePessoa {
             JOptionPane.showMessageDialog(telaPessoa, "Não obteve o carregamento do arquivo");
         }
      }
-      private boolean salvarImagem(){
-        
-        try {
-            File arquivo = new File(telaPessoa.getLinkImagem());
-            ImageIO.write(imagem, "jpg", arquivo);
-            return true;
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(telaPessoa, "Não foi possível enviar a imagem");
-            System.out.println(e);
-            return false;
-        }
-      }
+    
 }
             
         
