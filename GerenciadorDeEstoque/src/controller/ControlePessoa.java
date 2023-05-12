@@ -84,8 +84,7 @@ public class ControlePessoa implements ActionListener, KeyListener {
             }else{
                     JOptionPane.showMessageDialog(null, "As senhas digitadas não coincidem");
                     telaPessoa.dispose();
-                    TelaCadastro telaPessoa = new TelaCadastro(null, true);
-                    telaPessoa.setVisible(true);
+                    ControlePessoa controlePessoa = new ControlePessoa(telaLogin);
                  
             }
             
