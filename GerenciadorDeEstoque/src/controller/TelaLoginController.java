@@ -32,11 +32,11 @@ public class TelaLoginController implements Initializable {
     private Button btnCadastrar;
     
     
-    
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+  
+    
     
 }
