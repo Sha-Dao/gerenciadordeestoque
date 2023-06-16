@@ -9,22 +9,44 @@ import controller.ControleLogin;
 import controller.ControlePerfil;
 import controller.ControlePessoa;
 import controller.ControleProduto;
+import controller.TelaLoginController;
+import java.io.IOException;
+import static javafx.application.Application.launch;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import model.Pessoa;
 
 /**
  *
  * @author j_ped
  */
-public class main {
+public class main extends Application {
     
-    public static void main(String[] args) {
-       ControleLogin controleLogin = new ControleLogin();
-       //ControleProduto controleProduto = new ControleProduto();
-       //controleProduto.iniciarTelaListagem();
-       //controleProduto.iniciarTelaCadastrarProduto();
- 
-       
+    private static Stage stage;
     
+    @Override
+    public void start(Stage primaryStage) throws IOException {
+        stage = primaryStage;        
+        Parent root = FXMLLoader.load(getClass().getResource
+                                        ("view/TelaLogin.fxml"));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("GERENCIADOR DE ESTOQUE");        
+        primaryStage.setResizable(false);
+        primaryStage.centerOnScreen();
+        primaryStage.show();
     }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    public static Stage getStage() {
+        return stage;
+    }
+    
     
 }

@@ -12,17 +12,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import model.Pessoa;
+import model.PessoaDAO;
 
-/**
- * FXML Controller class
- *
- * @author j_ped
- */
+
+
+
 public class TelaLoginController implements Initializable {
+    
+    private final PessoaDAO pessoaDAO = new PessoaDAO();
 
     @FXML
     private TextField txtEmail;
     
+    @FXML
     private PasswordField passwordFieldSenha;
     
     @FXML
@@ -30,13 +33,25 @@ public class TelaLoginController implements Initializable {
     
     @FXML
     private Button btnCadastrar;
-    
-    
+   
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    @FXML
+    public void handleButtonEntrar(){
+        txtEmail.setText("a");
+        
+    }
+    
+    @FXML
+    public void handleButtonCadastrar(){
+    
+    }
+    
+    
     
 }
