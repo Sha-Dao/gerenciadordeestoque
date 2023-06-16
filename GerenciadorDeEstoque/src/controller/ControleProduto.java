@@ -5,141 +5,143 @@
  */
 package controller;
 
-import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import javafx.scene.input.KeyEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
+import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Priority;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import model.Produto;
-import model.ProdutoDAO;
 import service.ServiceProduto;
-import view.TelaCadastrarProduto;
-import view.TelaEditarProduto;
-import view.TelaListagemProdutos;
 
-/**
- *
- * @author j_ped
- */
-public class ControleProduto implements ActionListener{
-    
+public class ControleProduto {
+
+    @FXML
+    private VBox panelContainer;
+    @FXML
+    private TextField txtPesquisar;
+    private ArrayList<Produto> listaProdutos;
     private ServiceProduto serviceProduto;
-    private TelaListagemProdutos telaListagemProdutos;
-    private TelaEditarProduto telaEditarProduto;
-    private TelaCadastrarProduto telaCadastrarProduto;
-    
 
-    public ControleProduto() {
-        this.serviceProduto = new ServiceProduto();
+    public void initialize() {
+        listaProdutos = getProdutos();
+        mostrarProdutosNaTela(listaProdutos);
         
     }
-    
-    public void iniciarTelaListagem() {
-        this.telaListagemProdutos = new TelaListagemProdutos(this);
-    }
-    
-    public ArrayList<Produto> ListarProdutos(){
-       return this.serviceProduto.listar();
-      
-    }
-    
-    public void iniciarTelaEditarProduto(Produto produto){
-        telaEditarProduto = new TelaEditarProduto(telaListagemProdutos, true, produto);
-        telaEditarProduto.getjButtonSalvarEdicao().addActionListener(this);
-        telaEditarProduto.getjButtonSelecionarFoto().addActionListener(this);
-        
-        ImageIcon icon = new ImageIcon(produto.getImagem());
- 
-        Image imagem = icon.getImage().getScaledInstance(200, -1, Image.SCALE_SMOOTH);
-        icon = new ImageIcon(imagem);
-        telaEditarProduto.getjLabelFotoProduto().setIcon(icon);
-        telaEditarProduto.setVisible(true);
-    }
-    
-    public void iniciarTelaCadastrarProduto(){
-        telaCadastrarProduto = new TelaCadastrarProduto(null, true);
-        telaCadastrarProduto.getjButtonSelecionarFoto().addActionListener(this);
-        telaCadastrarProduto.getjButtonCadastrarProduto().addActionListener(this);
-        telaCadastrarProduto.setVisible(true);
-    }
-    
-    
-    public void deletarProduto(int IdProduto){
-        this.serviceProduto.deletarProduto(IdProduto);
-        this.telaListagemProdutos.mostrarProdutos("");
-    }
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        Object source = e.getSource();
-        
 
-        if (source instanceof TelaListagemProdutos.JButtonProduto) {
-            TelaListagemProdutos.JButtonProduto button = (TelaListagemProdutos.JButtonProduto) source;
-            if (button.getTipoButton().equals("editar")){
-                iniciarTelaEditarProduto(button.getProduto());
-                
-            }
-            if (button.getTipoButton().equals("deletar")){
-                int resposta = JOptionPane.showConfirmDialog(null, "Deseja Realmente deletar esse produto?", "Confirmação", JOptionPane.YES_NO_OPTION);
-                if (resposta == JOptionPane.YES_OPTION) {
-                    deletarProduto(button.getProduto().getId());
-                } 
-            }
-        } else{
-            if (telaCadastrarProduto != null ){
-                if (e.getSource().equals(telaCadastrarProduto.getjButtonSelecionarFoto() )) {
-                    this.serviceProduto.selecionarImagemParaCadastrar(telaCadastrarProduto);
-                } else{
-                    if (e.getSource().equals(telaCadastrarProduto.getjButtonCadastrarProduto())){
-                        try {
-                            this.serviceProduto.adicionarProduto(telaCadastrarProduto);
-                            JOptionPane.showMessageDialog(null, "Produto adicionado!!");
-                        } catch (IOException ex) {
-                            Logger.getLogger(ControleProduto.class.getName()).log(Level.SEVERE, null, ex);
-                            JOptionPane.showMessageDialog(null, "Não foi possível adicionar o produto!!");
-                        }
-                    }
-                }
-                
-            }
-            if (telaListagemProdutos != null){
-                if (e.getSource().equals(telaListagemProdutos.getTextField())){
-                String stringPesquisa = telaListagemProdutos.getTextField().getText();
-                telaListagemProdutos.mostrarProdutos(stringPesquisa);
+    @FXML
+    public void handleKeyPressedPesquisar(KeyEvent event) {
+        if (event.getSource().equals(txtPesquisar)){
+            String character = txtPesquisar.getText();
+
+            ArrayList<Produto> produtosEncontrados = new ArrayList<>();
+
+            for (Produto produto : listaProdutos) {
+                if (produto.getNome().toLowerCase().contains(character.toLowerCase())) {
+                    produtosEncontrados.add(produto);
                 }
             }
-            if (telaEditarProduto != null){
-                if (e.getSource().equals(telaEditarProduto.getjButtonSalvarEdicao())){
+            mostrarProdutosNaTela(produtosEncontrados);
+        }
+    }
+    
+    @FXML
+    public void handleButtonDeletarProduto(ActionEvent event){
+        
+        Button button = (Button) event.getSource();
+        ArrayList<Produto> produtosParaRemover = new ArrayList<>();
+
+        for (Produto produto : listaProdutos) {
+            int id = produto.getId();
+            if (Integer.toString(id).equals(button.getId())) {
+                produtosParaRemover.add(produto);
+            }
+        }
+
+        listaProdutos.removeAll(produtosParaRemover);
+        
+        mostrarProdutosNaTela(listaProdutos);
+    }
+    
+    @FXML
+    public void handleButtonEditarProduto(ActionEvent event) throws IOException{
+        Button button = (Button) event.getSource();
+        int produtoId = Integer.parseInt(button.getId());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaEditarProduto.fxml"));
+        Parent root = loader.load();
+        
+        ControleEditarProduto controleEditarProduto = loader.getController();
+        System.out.println(produtoId);
+        controleEditarProduto.setProduto(produtoId);
+
+        Stage editStage = new Stage();
+        editStage.setTitle("Editar Produto");
+        editStage.setScene(new Scene(root));
+        editStage.initModality(Modality.APPLICATION_MODAL);
+
+        editStage.showAndWait();
+
+    }
+    
+    
+    public void mostrarProdutosNaTela(ArrayList<Produto> produtos){
+        panelContainer.getChildren().clear();
+        
+        for (Produto produto : produtos) {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("panel.fxml"));
+                AnchorPane panel = loader.load();
+                panel.setPadding(new Insets(0, 0, 10, 0));
+
+                Button buttonEditar = (Button) panel.lookup("#editar");
+                Button buttonDeletar = (Button) panel.lookup("#deletar");
+                
+                Label labelNome = (Label) panel.lookup("#lblnome");
+                labelNome.setText("Nome: "+produto.getNome());
+                Label labelQuantidade = (Label) panel.lookup("#lblquantidade");
+                labelQuantidade.setText("Quantidade: "+Integer.toString(produto.getQuantidade()));
+                Label labelPreco = (Label) panel.lookup("#lblpreco");
+                labelPreco.setText("Preço: "+Double.toString(produto.getPreco()));    
+                Label labelTipo = (Label) panel.lookup("#lblTipo");
+                labelTipo.setText("Tipo: "+Integer.toString(produto.getIdTipo()));
+                
+                buttonDeletar.setId(""+produto.getId());
+                buttonEditar.setId(""+produto.getId());
+                buttonDeletar.setOnAction(event -> handleButtonDeletarProduto(event));
+                buttonEditar.setOnAction(event -> {
                     try {
-                        this.serviceProduto.editarProduto(telaEditarProduto.getProduto());
+                        handleButtonEditarProduto(event);
                     } catch (IOException ex) {
                         Logger.getLogger(ControleProduto.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                    telaEditarProduto.dispose();
-                    if(telaListagemProdutos != null){
-                        telaListagemProdutos.mostrarProdutos("");
-                    }
-                }
-                if (e.getSource().equals(telaEditarProduto.getjButtonSelecionarFoto())){
-                    this.serviceProduto.selecionarImagemParaEditar(telaEditarProduto);
-                }
+                });
+
+                panelContainer.getChildren().add(panel);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            
-        }  
+        panelContainer.layout();
+        }
+
     }
-    
-    public void adicionarActionListener(JButton botao) {
-        botao.addActionListener(this);
+
+    private ArrayList<Produto> getProdutos() {
+        serviceProduto = new ServiceProduto();
+       return serviceProduto.listarProdutos();
     }
-    
-    
 }

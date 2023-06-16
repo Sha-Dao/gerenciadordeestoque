@@ -118,5 +118,34 @@ public class ProdutoDAO {
         
         return lista;  
     }
-    
+     
+    public Produto getById(int id) {
+        String sql = "SELECT * FROM produto WHERE id = ?";
+        PreparedStatement pst;
+        ResultSet rs;
+        Produto produto = null;
+
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            pst.setInt(1, id);
+            rs = pst.executeQuery();
+
+            if (rs.next()) {
+                produto = new Produto();
+                produto.setId(rs.getInt("id"));
+                produto.setNome(rs.getString("nome"));
+                produto.setIdTipo(rs.getInt("idtipo"));
+                produto.setQuantidade(rs.getInt("quantidade"));
+                produto.setPreco(rs.getDouble("preco"));
+                produto.setImagem(rs.getBytes("imagem"));
+            }
+
+            rs.close();
+            pst.close();
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+
+        return produto;
+    }
 }
