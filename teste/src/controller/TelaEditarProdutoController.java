@@ -18,7 +18,7 @@ import service.ServiceProduto;
  *
  * @author santo
  */
-public class ControleEditarProduto {
+public class TelaEditarProdutoController {
     @FXML
     private TextField txtNome;
     @FXML
@@ -31,7 +31,7 @@ public class ControleEditarProduto {
     private ServiceProduto serviceProduto;
     private Produto produto;
 
-    public ControleEditarProduto() {
+    public TelaEditarProdutoController() {
         serviceProduto = new ServiceProduto();
     }
     

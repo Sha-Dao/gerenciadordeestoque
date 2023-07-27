@@ -16,7 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import main.main;
+import main.Main;
 
 /**
  *
@@ -79,10 +79,12 @@ public class TelaPrincipalController implements Initializable{
     private void openMainView() throws IOException{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/view/TelaPrincipal.fxml"));
-        Parent pane = loader.load();            
+        Parent pane = loader.load();
+        /*
         main.getStage().getScene().setRoot(pane);
         main.getStage().sizeToScene();
         main.getStage().centerOnScreen();
+*/
     } 
     
 }

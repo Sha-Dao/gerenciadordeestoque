@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="789.0" style="-fx-background-color: rgb(72,69,174);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="791.0" style="-fx-background-color: rgb(72,69,174);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="254.0" layoutY="54.0" style="-fx-font-weight: bold; -fx-font-size: 39; -fx-font-family: tahoma;" text="CADASTRO" textFill="WHITE">
          <font>
@@ -94,7 +94,7 @@
             <Image url="@../imagens/gerens-logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="177.0" layoutY="764.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="CADASTRAR" textFill="WHITE">
+      <Button layoutX="192.0" layoutY="769.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="CADASTRAR" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>

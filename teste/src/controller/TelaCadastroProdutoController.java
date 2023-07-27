@@ -11,46 +11,42 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import model.Pessoa;
-import model.PessoaDAO;
+import javafx.scene.control.Spinner;
 
-
-
-
-public class TelaLoginController implements Initializable {
-    
-    private final PessoaDAO pessoaDAO = new PessoaDAO();
-
-    @FXML
-    private TextField txtEmail;
+/**
+ *
+ * @author Dani
+ */
+public class TelaCadastroProdutoController implements Initializable {
     
     @FXML
-    private PasswordField passwordFieldSenha;
+    private TextField txtNome;
     
     @FXML
-    private Button btnEntrar;
+    private TextField txtTipo;
     
     @FXML
-    private Button btnCadastrar;
+    private TextField txtPreco;
+    
+    @FXML
+    private Button btnSelecionarFoto;
    
+    @FXML
+    private Button btnCadastrarProduto;
+    @FXML
+    private Spinner spnQuantidade;
     
     
-    @Override
+    
+    
+    
+     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        //TODO
+    } 
     
-    @FXML
-    public void handleButtonEntrar(){
-        txtEmail.setText("a");
-        
-    }
     
-    @FXML
-    public void handleButtonCadastrar(){
     
-    }
     
     
     

@@ -85,7 +85,7 @@ public class ControleProduto {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("TelaEditarProduto.fxml"));
         Parent root = loader.load();
         
-        ControleEditarProduto controleEditarProduto = loader.getController();
+        TelaEditarProdutoController controleEditarProduto = loader.getController();
         System.out.println(produtoId);
         controleEditarProduto.setProduto(produtoId);
 
