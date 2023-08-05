@@ -28,12 +28,13 @@ public class ServiceLogin {
 
     
     public boolean entrar(String email, String senha) {
+       
         //atribui o valor retornado por pessoaDAO a uma varivael pessoaLogin
        pessoaLogin = pessoaDAO.acesso(email, senha);
         
        //checa se pessoaLogin recebeu algum valor do id, permitindo ou não o acesso
         if (pessoaLogin.getId() > 0) {
-            
+      
             return true;
           
         

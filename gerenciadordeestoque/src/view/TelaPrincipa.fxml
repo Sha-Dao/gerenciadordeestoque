@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(72,69,174);">
+         <children>
+            <Pane layoutX="45.0" prefHeight="1080.0" prefWidth="456.0" style="-fx-background-color: rgb(127,108,235);">
+               <children>
+                  <Button fx:id="btnProdutos" layoutX="45.0" layoutY="368.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="Adicionar Produtos" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDados" graphicTextGap="0.0" layoutX="43.0" layoutY="494.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="Dados Pessoais" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnDeletar" layoutX="45.0" layoutY="628.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Deletar Perfil" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnSair" layoutX="43.0" layoutY="925.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="SAIR" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="30.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnLista" layoutX="43.0" layoutY="228.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="Lista de Produtos" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="30.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <ImageView fitHeight="714.0" fitWidth="1049.0" layoutX="670.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagens/LogoPrincipal.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="655.0" layoutY="98.0" text="GERENCIADOR DE ESTOQUE" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma Bold" size="72.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</StackPane>

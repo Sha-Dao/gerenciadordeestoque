@@ -46,8 +46,4 @@ public class TelaCadastroProdutoController implements Initializable {
     } 
     
     
-    
-    
-    
-    
 }

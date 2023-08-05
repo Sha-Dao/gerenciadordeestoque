@@ -53,9 +53,9 @@ public class TelaLoginController implements Initializable {
   
     @FXML
     public void handleButtonEntrar() throws IOException{
-        openTelaPrincipal();
        
-        /*if (validateFields()){
+       
+        if (validateFields()){
             if(serviceLogin.entrar(txtEmail.getText(), String.valueOf(passwordFieldSenha.getText()))){
                 openTelaPrincipal();
             }else{
@@ -68,7 +68,7 @@ public class TelaLoginController implements Initializable {
         }
             
             
-        */
+        
         }
     
     
@@ -88,14 +88,19 @@ public class TelaLoginController implements Initializable {
     
     }
     private boolean validateFields(){
-        if(txtEmail.getText().isEmpty()) return false;
-        else if(passwordFieldSenha.getText().isEmpty()) return false;
-        else return true;
+        String email = txtEmail.getText();
+        String senha = String.valueOf(passwordFieldSenha.getText());
+        
+        if(email.isEmpty()  ||  senha.isEmpty()){ 
+            return false;
+       
+        } else       
+            return true;
     }
      
     private void openTelaPrincipal() throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/TelaPrincipal.fxml"));
+        loader.setLocation(getClass().getResource("/view/TelaPrincipa.fxml"));
         Parent pane = loader.load();            
         Main.getStage().getScene().setRoot(pane);
         Main.getStage().sizeToScene();
