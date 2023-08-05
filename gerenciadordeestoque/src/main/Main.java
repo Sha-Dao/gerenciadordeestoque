@@ -25,7 +25,7 @@ public class Main extends Application {
         primaryStage.setTitle("GERENCIADOR DE ESTOQUE");        
         primaryStage.setResizable(false);
         primaryStage.centerOnScreen();
-        primaryStage.setFullScreen(true);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

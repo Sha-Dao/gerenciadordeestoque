@@ -13,9 +13,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
 import javafx.scene.control.PasswordField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import main.Main;
 import model.Pessoa;
 import model.PessoaDAO;
@@ -48,7 +53,9 @@ public class TelaLoginController implements Initializable {
   
     @FXML
     public void handleButtonEntrar() throws IOException{
-        if (validateFields()){
+        openTelaPrincipal();
+       
+        /*if (validateFields()){
             if(serviceLogin.entrar(txtEmail.getText(), String.valueOf(passwordFieldSenha.getText()))){
                 openTelaPrincipal();
             }else{
@@ -61,12 +68,23 @@ public class TelaLoginController implements Initializable {
         }
             
             
-        
+        */
         }
     
     
     @FXML
-    public void handleButtonCadastrar(){
+    public void handleButtonCadastrar() throws IOException{
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/TelaCad.fxml"));
+        Parent content = loader.load();
+
+        Stage dialogStage = new Stage();
+        dialogStage.initModality(Modality.APPLICATION_MODAL);
+        dialogStage.setTitle("CADASTRO DE USUÁRIO");
+        Scene scene = new Scene(content);
+        dialogStage.setScene(scene);
+
+        dialogStage.showAndWait();
     
     }
     private boolean validateFields(){
@@ -77,11 +95,13 @@ public class TelaLoginController implements Initializable {
      
     private void openTelaPrincipal() throws IOException{
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/mvcfx/view/TelaPrincipal.fxml"));
+        loader.setLocation(getClass().getResource("/view/TelaPrincipal.fxml"));
         Parent pane = loader.load();            
         Main.getStage().getScene().setRoot(pane);
         Main.getStage().sizeToScene();
+        Main.getStage().setFullScreen(true);
         Main.getStage().centerOnScreen();
+        
     } 
 
     @Override
