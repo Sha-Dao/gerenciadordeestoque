@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Spinner;
+import model.Produto;
 
 /**
  *
@@ -43,11 +44,25 @@ public class TelaCadastroProdutoController implements Initializable {
      @Override
     public void initialize(URL url, ResourceBundle rb) {
         //TODO
+        btnCadastrarProduto.setOnAction(event -> cadastrarProduto());
+        btnSelecionarFoto.setOnAction(event -> selecionarImagem());
     } 
     
+    private void cadastrarProduto() {
+    Produto produto = new Produto();
+    produto.setNome(txtNome.getText());
+    produto.setIdTipo(Integer.parseInt(txtTipo.getText()));
+    produto.setPreco(Double.parseDouble(txtPreco.getText()));
+    produto.setQuantidade((int) spnQuantidade.getValue());
     
     
     
     
     
+    }
+    
+    
+    private void selecionarImagem(){
+        
+    }
 }
