@@ -6,7 +6,6 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="875.0" prefWidth="1344.0" style="-fx-background-color: rgb(127,108,235);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="722.0" prefWidth="767.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 30px;">
@@ -17,7 +16,7 @@
                </font>
             </Label>
             <TextField fx:id="txtEmail" layoutX="63.0" layoutY="204.0" prefHeight="39.0" prefWidth="332.0" promptText="Digite o email aqui" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;" />
-            <PasswordField fx:id="txtSenha" layoutX="63.0" layoutY="342.0" prefHeight="39.0" prefWidth="332.0" promptText="Digite sua senha aqui" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;" />
+            <PasswordField fx:id="passwordFieldSenha" layoutX="63.0" layoutY="342.0" prefHeight="39.0" prefWidth="332.0" promptText="Digite sua senha aqui" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;" />
             <Label layoutX="63.0" layoutY="310.0" text="SENHA" textFill="WHITE">
                <font>
                   <Font name="Tahoma Bold" size="18.0" />

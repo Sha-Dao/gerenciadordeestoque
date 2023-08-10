@@ -42,13 +42,42 @@ public class PessoaDAO {
             rs.close();
             pst.close();
         } catch (SQLException e){
-            JOptionPane.showMessageDialog(null, "Login ou senha incorretos!");
+           
              System.out.println(e);
                        
         }
         return pessoa;
     }
+    public boolean checarUsuario (String email) throws SQLException{
+        String sql = "Select count(*) FROM pessoa WHERE email LIKE ?";
+        PreparedStatement pst;
+        ResultSet rs;
+        int check = 0;
+       
+        
+        try{
+            pst = Conexao.getConexao().prepareStatement(sql);
+            pst.setString(1, email);
+            rs = pst.executeQuery();
+            while (rs.next()){
+            check = rs.getInt("count(*)");
+            }
+            rs.close();
+            pst.close();
+            
+            if (check>0){
+                return false;
+            }else{
+                return true;
+            }
+            }
+        catch (Exception e){
+            System.out.println(e);
+            return false;   
+                }
+        
     
+    }
     //cadastro de pessoas
     
     public void inserir (Pessoa pessoa){

@@ -65,10 +65,8 @@ public class TelaLoginController implements Initializable {
         }
              else{
                 AlertUtil.show("Validação de Dados", "Preencha todos os campos", Alert.AlertType.ERROR);
-        }
-            
-            
-        
+        }     
+         
         }
     
     
@@ -85,17 +83,12 @@ public class TelaLoginController implements Initializable {
         dialogStage.setScene(scene);
 
         dialogStage.showAndWait();
+        
     
     }
     private boolean validateFields(){
-        String email = txtEmail.getText();
-        String senha = String.valueOf(passwordFieldSenha.getText());
-        
-        if(email.isEmpty()  ||  senha.isEmpty()){ 
-            return false;
-       
-        } else       
-            return true;
+        if(txtEmail.getText().isEmpty() || passwordFieldSenha.getText().isEmpty()) return false;
+        else return true;
     }
      
     private void openTelaPrincipal() throws IOException{

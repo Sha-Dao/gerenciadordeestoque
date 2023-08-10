@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="791.0" style="-fx-background-color: rgb(72,69,174);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="791.0" style="-fx-background-color: rgb(72,69,174);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadastroController">
    <children>
       <Label layoutX="254.0" layoutY="54.0" style="-fx-font-weight: bold; -fx-font-size: 39; -fx-font-family: tahoma;" text="CADASTRO" textFill="WHITE">
          <font>
@@ -55,36 +56,36 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <TextField fx:id="txtNome" layoutX="72.0" layoutY="163.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235);">
+      <TextField fx:id="txtNome" layoutX="72.0" layoutY="163.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <TextField fx:id="txtEmail" layoutX="72.0" layoutY="242.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235);">
+      <TextField fx:id="txtEmail" layoutX="72.0" layoutY="242.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <TextField fx:id="txtCpf" layoutX="72.0" layoutY="330.0" prefHeight="39.0" prefWidth="188.0" style="-fx-background-color: rgb(127,108,235);">
+      <TextField fx:id="txtCpf" layoutX="72.0" layoutY="330.0" prefHeight="39.0" prefWidth="188.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <TextField fx:id="txtDataNasc" layoutX="268.0" layoutY="330.0" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: rgb(127,108,235);">
+      <TextField fx:id="txtDataNasc" layoutX="268.0" layoutY="330.0" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <TextField fx:id="txtTelefone" layoutX="72.0" layoutY="416.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235);">
+      <TextField fx:id="txtTelefone" layoutX="72.0" layoutY="416.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <TextField fx:id="txtEndereco" layoutX="72.0" layoutY="503.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235);">
+      <TextField fx:id="txtEndereco" layoutX="72.0" layoutY="503.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <Button fx:id="btnFoto" layoutX="527.0" layoutY="330.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="201.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="SELECIONAR FOTO" textFill="WHITE">
+      <Button fx:id="btnFoto" layoutX="527.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleButtonFoto" prefHeight="39.0" prefWidth="201.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="SELECIONAR FOTO" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="553.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagemUser" fitHeight="150.0" fitWidth="200.0" layoutX="553.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagens/perfil-imagem.png" />
          </image>
@@ -94,7 +95,7 @@
             <Image url="@../imagens/gerens-logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="192.0" layoutY="769.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="CADASTRAR" textFill="WHITE">
+      <Button fx:id="btnSalvar" layoutX="192.0" layoutY="769.0" mnemonicParsing="false" onAction="#handleButtonCadastrarPessoa" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="CADASTRAR" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -104,12 +105,12 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordFieldSenha" layoutX="72.0" layoutY="590.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235);">
+      <PasswordField fx:id="passwordFieldSenha" layoutX="72.0" layoutY="590.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font>
       </PasswordField>
-      <PasswordField fx:id="passwordFieldConfSenha" layoutX="72.0" layoutY="679.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235);">
+      <PasswordField fx:id="passwordFieldConfSenha" layoutX="72.0" layoutY="679.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font>

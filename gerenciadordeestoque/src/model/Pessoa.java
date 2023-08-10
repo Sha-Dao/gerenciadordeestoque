@@ -19,8 +19,22 @@ public class Pessoa {
     private String cpf;
     private String endereco;
     private String telefone;
+
+    public Pessoa( String nome, Date datanasc, String cpf, String endereco, String telefone, String email, String senha, byte[] foto) {
+   
+        this.nome = nome;
+        this.datanasc = datanasc;
+        this.cpf = cpf;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.email = email;
+        this.senha = senha;
+        this.foto = foto;
+    }
     private String email;
     private String senha;
+
+
     private byte[] foto;
 
     public Date getDatanasc() {
@@ -52,6 +66,9 @@ public class Pessoa {
 
     public String getSenha() {
         return senha;
+    }
+
+    public Pessoa() {
     }
 
     public void setSenha(String senha) {

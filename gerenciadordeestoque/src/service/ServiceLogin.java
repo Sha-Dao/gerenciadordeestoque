@@ -21,6 +21,10 @@ public class ServiceLogin {
     public Pessoa getPessoaLogin() {
         return pessoaLogin;
     }
+    
+    public ServiceLogin() {
+        pessoaDAO = new PessoaDAO();
+    }
 
     public void setPessoaLogin(Pessoa pessoaLogin) {
         this.pessoaLogin = pessoaLogin;
