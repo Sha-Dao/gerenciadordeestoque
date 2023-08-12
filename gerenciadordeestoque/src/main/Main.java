@@ -1,6 +1,6 @@
 package main;
 
-import controller.TelaLoginController;
+//import controller.TelaLoginController;
 import java.io.IOException;
 import static javafx.application.Application.launch;
 import javafx.application.Application;
