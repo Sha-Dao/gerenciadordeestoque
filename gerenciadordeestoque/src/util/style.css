@@ -1,0 +1,28 @@
+.prop-buttons{
+    -fx-background-color:  rgb(72,69,174);
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-font-weight: bold ; 
+    -fx-font-family: tahoma;
+    -fx-background-radius: 20;
+    -fx-pref-width: 350;
+    
+
+}
+.other-button{
+    -fx-background-color:  rgb(72,69,174);
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-font-weight: bold ; 
+    -fx-font-family: tahoma;
+    -fx-background-radius: 20;
+    -fx-pref-width: 150;
+    
+    
+}
+
+.date-picker .text-field {
+    -fx-text-fill: white;
+    -fx-background-color:  rgb(127,108,235);
+    
+}

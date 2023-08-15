@@ -4,7 +4,7 @@
  */
 package controller;
 
-import java.awt.Button;
+import javafx.scene.control.Button;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import static javafx.application.Application.launch;
+import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,6 +27,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import main.Main;
 import model.Conexao;
+import model.PessoaDAO;
+import util.Session;
 
 /**
  *
@@ -120,27 +123,12 @@ public class TelaPrincipalController implements Initializable{
 
         Optional<ButtonType> result = confirmationAlert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            if ( /**variável do id*/ != null) {
-                try {
-                    
-                    Connection connection = conexao.obterConexao();
-                     
-                    String sql = "DELETE FROM perfis WHERE id = ?";
-                    PreparedStatement stmt = connection.prepareStatement(sql);
-                    stmt.setInt(1, /**variavel do id*/);
-                    
-                    stmt.executeUpdate();
+            if (Session.getPessoa().getId() != 0) {
+                PessoaDAO pessoaDAO =  new PessoaDAO();
+                pessoaDAO.excluir(Session.getPessoa());
                 
-                    stmt.close();
-                    connection.close();
-                    
-                    Stage stage = (Stage) BtnDeletar.getScene().getWindow();
-                    stage.close();
-                    } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            }
         }
+    }
     }
     @FXML
     public void handleButtonBtnSair() throws IOException{
@@ -150,16 +138,18 @@ public class TelaPrincipalController implements Initializable{
         stage.close();
         
         // Carrega e exibe a tela de login 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TelaLog.fxml"));
-        Parent loginRoot = loader.load();
-        Scene loginScene = new Scene(loginRoot);
-
-        Stage primaryStage = new Stage(); // Obtenha o palco principal da sua aplicação
-        primaryStage.setScene(loginScene);
-        primaryStage.setTitle("TELA DE LOGIN");
+      Platform.runLater(() -> {
+        try {
+            Main newMainApp = new Main();
+            newMainApp.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    });
+}
 
         // Exibir a tela de login
-        primaryStage.show();
+     
     }
+
     
-}

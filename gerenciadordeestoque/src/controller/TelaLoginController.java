@@ -5,10 +5,14 @@
  */
 package controller;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -49,6 +53,18 @@ public class TelaLoginController implements Initializable {
     private Button btnCadastrar;
    
     
+     @Override
+    public void initialize(URL location, ResourceBundle resources) {
+     passwordFieldSenha.setOnKeyPressed(event -> {
+            if (event.getCode().getName().equals("Enter")) {
+                try {
+                    handleButtonEntrar();
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaLoginController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });  
+    }
     
   
     @FXML
@@ -92,21 +108,20 @@ public class TelaLoginController implements Initializable {
     }
      
     private void openTelaPrincipal() throws IOException{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/view/TelaPrincipa.fxml"));
-        Parent pane = loader.load();            
-        Main.getStage().getScene().setRoot(pane);
-        Main.getStage().sizeToScene();
-        Main.getStage().setFullScreen(true);
-        Main.getStage().centerOnScreen();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/view/TelaPrincipa.fxml"));
+            Parent pane = loader.load();
+            Scene scene = new Scene(pane);
+
+            Stage principalStage = new Stage();
+            principalStage.setTitle("Tela Principal");
+            principalStage.setScene(scene);
+            principalStage.setMaximized(true);
+
+            Main.getStage().close(); // Fecha a janela de login
+            principalStage.showAndWait();
+       
         
     } 
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-       
-    }
-    
-    
     
 }

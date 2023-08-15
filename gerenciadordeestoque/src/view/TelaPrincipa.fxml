@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -9,54 +12,98 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(72,69,174);">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="944.0" prefWidth="1676.0" style="-fx-background-color: rgb(72,69,174);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaPrincipalController">
+   <left>
+      <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="442.0" style="-fx-background-color: rgb(127,108,235); -fx-alignment: top- center; -fx-spacing: 75;" stylesheets="@../util/style.css" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="45.0" prefHeight="1080.0" prefWidth="456.0" style="-fx-background-color: rgb(127,108,235);">
-               <children>
-                  <Button fx:id="btnProdutos" layoutX="45.0" layoutY="368.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="Adicionar Produtos" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="30.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnDados" graphicTextGap="0.0" layoutX="43.0" layoutY="494.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="Dados Pessoais" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="30.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnDeletar" layoutX="45.0" layoutY="628.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: red; -fx-background-radius: 10;" text="Deletar Perfil" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="30.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnSair" layoutX="43.0" layoutY="925.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="SAIR" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="30.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="btnLista" layoutX="43.0" layoutY="228.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="329.0" style="-fx-background-color: rgb(72,69,174); -fx-background-radius: 10;" text="Lista de Produtos" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="30.0" />
-                     </font>
-                  </Button>
-               </children>
-            </Pane>
-            <ImageView fitHeight="714.0" fitWidth="1049.0" layoutX="670.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="BtnLista" mnemonicParsing="false" onAction="#handleButtonBtnLista" prefHeight="58.0" prefWidth="329.0" styleClass="prop-buttons" text="Lista de Produtos">
+               <VBox.margin>
+                  <Insets top="150.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="BtnAdicionar" mnemonicParsing="false" onAction="#handleButtonBtnAdicionar" prefHeight="58.0" prefWidth="331.0" styleClass="prop-buttons" text="Adicionar Produtos" textAlignment="CENTER">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="BtnDados" mnemonicParsing="false" onAction="#handleButtonBtnDados" prefHeight="58.0" prefWidth="337.0" styleClass="prop-buttons" text="Dados Pessoais">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="BtnDeletar" mnemonicParsing="false" onAction="#handleButtonBtnDeletar" prefHeight="58.0" prefWidth="325.0" style="-fx-background-color: red;" styleClass="prop-buttons" text="Deletar Perfil">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="BtnSair" mnemonicParsing="false" onAction="#handleButtonBtnSair" prefHeight="39.0" prefWidth="30.0" styleClass="other-button" text="Sair">
+               <VBox.margin>
+                  <Insets top="80.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets left="120.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <center>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: rgb(72,69,174);" stylesheets="@../Documents/GitHub/gerenciadordeestoque/gerenciadordeestoque/src/util/style.css">
+         <children>
+            <Label text="GERENCIADOR DE ESTOQUE" textFill="WHITE">
+               <font>
+                  <Font name="Tahoma Bold" size="64.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="140.0" />
+               </VBox.margin>
+            </Label>
+            <ImageView fitHeight="579.0" fitWidth="829.0" pickOnBounds="true" styleClass="image-view" VBox.vgrow="ALWAYS">
                <image>
                   <Image url="@../imagens/LogoPrincipal.png" />
                </image>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+               <viewport>
+                  <Rectangle2D />
+               </viewport>
             </ImageView>
-            <Label layoutX="655.0" layoutY="98.0" text="GERENCIADOR DE ESTOQUE" textFill="WHITE">
-               <font>
-                  <Font name="Tahoma Bold" size="72.0" />
-               </font>
-            </Label>
          </children>
-      </Pane>
-   </children>
-</StackPane>
+      </VBox>
+   </center>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</BorderPane>

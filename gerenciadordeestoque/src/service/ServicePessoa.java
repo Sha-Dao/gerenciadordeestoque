@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import javafx.scene.control.Alert;
 import javafx.stage.FileChooser;
@@ -55,7 +56,7 @@ public class ServicePessoa {
     
 
     public void cadastrar(String nome, String email, String cpf, String telefone,
-    String senha, String data, String endereco) throws ParseException, IOException {
+    String senha, LocalDate data, String endereco) throws ParseException, IOException {
             byte[] fotoEmBytes = null;
             
             if (imagemFile != null) {
@@ -67,13 +68,23 @@ public class ServicePessoa {
                 e.printStackTrace();
                 AlertUtil.show("Erro ao cadastrar", "Ocorreu um erro ao processar a imagem", Alert.AlertType.ERROR);
             }
+            }
+            else{
+                File imagemPadraoFile = new File ("/imagens/perfil-imagem.png");
+            try {
+    
+                fotoEmBytes = Files.readAllBytes(imagemPadraoFile.toPath());
+                AlertUtil.show("Cadastro concluído!", "Seu cadastro foi realizado com sucesso!", Alert.AlertType.CONFIRMATION);
+            } catch (IOException e) {
+                e.printStackTrace();
+                AlertUtil.show("Erro ao cadastrar", "Ocorreu um erro ao processar a imagem", Alert.AlertType.ERROR);
+            }
            
                 
-                   
+                  
             }
-            SimpleDateFormat dateFormat = new SimpleDateFormat("ddMMyyyy");
-            Date date = dateFormat.parse(data);
-            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+            
+           java.sql.Date sqlDate = java.sql.Date.valueOf(data);
             pessoa = new Pessoa(nome, sqlDate, cpf, endereco, telefone, email, senha, fotoEmBytes);
        
             pessoaDAO.inserir(pessoa);
@@ -95,11 +106,5 @@ public class ServicePessoa {
 		
         
      }
-     /*
-    private byte[] imageToBytes(Image image, String formatName) throws IOException {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        ImageIO.write(SwingFXUtils.fromFXImage(image, null), formatName, byteArrayOutputStream);
-        return byteArrayOutputStream.toByteArray();
-    }
-*/
+ 
 }

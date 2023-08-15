@@ -13,6 +13,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import view.MaskTextField?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="854.0" prefWidth="791.0" style="-fx-background-color: rgb(72,69,174);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadastroController">
    <children>
@@ -64,27 +65,19 @@
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <TextField fx:id="txtCpf" layoutX="72.0" layoutY="330.0" prefHeight="39.0" prefWidth="188.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
+      <MaskTextField fx:id="txtCpf" layoutX="72.0" layoutY="330.0" prefHeight="39.0" prefWidth="188.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
-         </font></TextField>
-      <TextField fx:id="txtDataNasc" layoutX="268.0" layoutY="330.0" prefHeight="39.0" prefWidth="209.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
+         </font></MaskTextField>
+      <MaskTextField fx:id="txtTelefone" layoutX="72.0" layoutY="416.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
-         </font></TextField>
-      <TextField fx:id="txtTelefone" layoutX="72.0" layoutY="416.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
-         <font>
-            <Font name="Tahoma" size="18.0" />
-         </font></TextField>
+         </font></MaskTextField>
       <TextField fx:id="txtEndereco" layoutX="72.0" layoutY="503.0" prefHeight="39.0" prefWidth="406.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;">
          <font>
             <Font name="Tahoma" size="18.0" />
          </font></TextField>
-      <Button fx:id="btnFoto" layoutX="527.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleButtonFoto" prefHeight="39.0" prefWidth="201.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="SELECIONAR FOTO" textFill="WHITE">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
+      <Button fx:id="btnFoto" layoutX="530.0" layoutY="332.0" mnemonicParsing="false" onAction="#handleButtonFoto" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="SELECIONAR FOTO" textFill="WHITE" />
       <ImageView fx:id="imagemUser" fitHeight="150.0" fitWidth="200.0" layoutX="553.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagens/perfil-imagem.png" />
@@ -95,9 +88,9 @@
             <Image url="@../imagens/gerens-logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="btnSalvar" layoutX="192.0" layoutY="769.0" mnemonicParsing="false" onAction="#handleButtonCadastrarPessoa" prefHeight="39.0" prefWidth="166.0" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="CADASTRAR" textFill="WHITE">
+      <Button fx:id="btnSalvar" layoutX="192.0" layoutY="769.0" mnemonicParsing="false" onAction="#handleButtonCadastrarPessoa" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-font-family: tahoma;" text="CADASTRAR" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Tahoma" size="18.0" />
          </font>
       </Button>
       <Label layoutX="72.0" layoutY="653.0" prefHeight="23.0" prefWidth="188.0" style="-fx-font-weight: bold; -fx-font-size: 18; -fx-font-family: tahoma;" text="CONFIRMAR SENHA" textFill="WHITE">
@@ -115,5 +108,6 @@
             <Font name="Tahoma" size="18.0" />
          </font>
       </PasswordField>
+      <DatePicker fx:id="datePicker" layoutX="265.0" layoutY="330.0" prefHeight="39.0" prefWidth="216.0" stylesheets="@../util/style.css" />
    </children>
 </Pane>

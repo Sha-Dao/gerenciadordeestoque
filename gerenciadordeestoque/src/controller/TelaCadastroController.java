@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,6 +21,7 @@ import model.Pessoa;
 import model.PessoaDAO;
 import service.ServicePessoa;
 import util.AlertUtil;
+import view.MaskTextField;
 
 /**
  *
@@ -37,11 +39,11 @@ public class TelaCadastroController implements Initializable {
     @FXML
     private TextField txtEmail;
     @FXML
-    private TextField txtCpf;
+    private MaskTextField txtCpf;
     @FXML
-    private TextField txtDataNasc;
+    private DatePicker datePicker;
     @FXML
-    private TextField txtTelefone;
+    private MaskTextField txtTelefone;
     @FXML
     private TextField txtEndereco;
     @FXML
@@ -55,6 +57,7 @@ public class TelaCadastroController implements Initializable {
     @FXML
     private ImageView imagemUser;
    
+    
 
    
     
@@ -62,15 +65,25 @@ public class TelaCadastroController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        
+       
+        passwordFieldConfSenha.textProperty().addListener((observable, oldValue, newValue) -> {
+        validatePasswordsMatch();
+    });
+        txtCpf.setMask("NNNNNNNNNNN");
+        txtTelefone.setMask("NNNNNNNNNNN");
+        
+       
+        
     }
- 
+    
     @FXML
     public void handleButtonCadastrarPessoa() throws IOException, ParseException, SQLException{
         
         if (validateFields()){
             if (pessoaDAO.checarUsuario(txtEmail.getText())){
                   servicePessoa.cadastrar(txtNome.getText(), txtEmail.getText(), txtCpf.getText(), txtTelefone.getText(),
-                  String.valueOf(passwordFieldSenha.getText()), txtDataNasc.getText(), txtEndereco.getText());
+                  String.valueOf(passwordFieldSenha.getText()), datePicker.getValue(), txtEndereco.getText());
                         if (selectedFile == null){
                             AlertUtil.show("Aviso!", "É recomendável que utilize uma imagem para sua identificação", Alert.AlertType.WARNING);
             }
@@ -114,5 +127,14 @@ public class TelaCadastroController implements Initializable {
             }
              else return true;
     }
+
+    private void validatePasswordsMatch() {
+        if (!passwordFieldSenha.getText().equals(passwordFieldConfSenha.getText())) {
+        passwordFieldConfSenha.setStyle("-fx-background-color: red; -fx-text-fill: white;");
+    } else {
+        passwordFieldConfSenha.setStyle("-fx-background-color: rgb(127,108,235); -fx-text-fill: white;"); // Remove o estilo
+    }
+    }
+    
 }
 
