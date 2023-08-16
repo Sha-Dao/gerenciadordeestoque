@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Group xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="testejavafx.v2.ControleEditarProduto">
+<Group xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
    <children>
       <Pane layoutY="-1.0" prefHeight="600.0" prefWidth="763.0" style="-fx-background-color: rgb(72,69,174);">
          <children>

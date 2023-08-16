@@ -33,6 +33,7 @@ import main.Main;
 import model.Pessoa;
 import model.PessoaDAO;
 import util.AlertUtil;
+import util.Session;
 
 /**
  *
@@ -48,11 +49,46 @@ public class ServicePessoa {
     
      public ServicePessoa() {
         //pessoaDAO e data são instanciados e telaPessoa recebe o atributo de tela
- 
+        this.pessoa = new Pessoa();
         this.pessoaDAO = new PessoaDAO();
         this.data = new Date();
     }
     
+    public void updateCampos(String nome, String email, String cpf, String telefone, 
+            LocalDate data, String endereco){
+       
+        
+            pessoa.setId(Session.getPessoa().getId());
+            pessoa.setNome(nome);
+            pessoa.setCpf(cpf);
+            pessoa.setEmail(email);
+            pessoa.setEndereco(endereco);
+            java.sql.Date sqlDate = java.sql.Date.valueOf(data);
+            pessoa.setDatanasc(sqlDate);
+            pessoa.setTelefone(telefone);
+            
+            
+            byte[] fotoEmBytes = null;
+            if (imagemFile != null) {
+            try {
+                
+                fotoEmBytes = Files.readAllBytes(imagemFile.toPath());
+                pessoa.setFoto(fotoEmBytes);
+                
+                
+            } catch (IOException e) {
+                e.printStackTrace();
+                AlertUtil.show("Erro ao cadastrar", "Ocorreu um erro ao processar a imagem", Alert.AlertType.ERROR);
+            }
+            }
+            else{
+                pessoa.setFoto(Session.getPessoa().getFoto());
+                
+            
+            }
+            pessoaDAO.alterar(pessoa);
+            
+    }
     
 
     public void cadastrar(String nome, String email, String cpf, String telefone,
@@ -63,7 +99,7 @@ public class ServicePessoa {
             try {
                 
                 fotoEmBytes = Files.readAllBytes(imagemFile.toPath());
-                AlertUtil.show("Cadastro concluído!", "Seu cadastro foi realizado com sucesso!", Alert.AlertType.CONFIRMATION);
+                
             } catch (IOException e) {
                 e.printStackTrace();
                 AlertUtil.show("Erro ao cadastrar", "Ocorreu um erro ao processar a imagem", Alert.AlertType.ERROR);
@@ -105,6 +141,14 @@ public class ServicePessoa {
         return selectedFile;
 		
         
+     }
+     
+     public void atualizarSenha(String senha){
+         Session.getPessoa().setSenha(senha);
+         pessoaDAO.alterarSenha(Session.getPessoa());
+         
+         
+         
      }
  
 }

@@ -5,7 +5,7 @@
     -fx-font-weight: bold ; 
     -fx-font-family: tahoma;
     -fx-background-radius: 20;
-    -fx-pref-width: 350;
+    -fx-pref-width: 380;
     
 
 }
@@ -24,5 +24,15 @@
 .date-picker .text-field {
     -fx-text-fill: white;
     -fx-background-color:  rgb(127,108,235);
+    
+}
+.gradiente{
+    -fx-background-color: linear-gradient(to bottom right, red, yellow);
+
+    
+}
+.spinner .text-field{
+    -fx-background-color: rgb(127,108,235);
+    
     
 }

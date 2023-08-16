@@ -43,7 +43,7 @@
                </cursor></Button>
             <ImageView fitHeight="241.0" fitWidth="321.0" layoutX="446.0" layoutY="195.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../imagens/gerens-logo.png" />
+                  <Image url="@../imagens/macaco-louquinho.gif" />
                </image>
             </ImageView>
          </children>

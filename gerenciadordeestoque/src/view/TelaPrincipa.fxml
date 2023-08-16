@@ -18,7 +18,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="944.0" prefWidth="1676.0" style="-fx-background-color: rgb(72,69,174);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaPrincipalController">
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="442.0" style="-fx-background-color: rgb(127,108,235); -fx-alignment: top- center; -fx-spacing: 75;" stylesheets="@../util/style.css" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" prefHeight="1080.0" prefWidth="442.0" style="-fx-background-color: rgb(127,108,235); -fx-alignment: top- center; -fx-spacing: 65;" stylesheets="@../util/style.css" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="BtnLista" mnemonicParsing="false" onAction="#handleButtonBtnLista" prefHeight="58.0" prefWidth="329.0" styleClass="prop-buttons" text="Lista de Produtos">
                <VBox.margin>
@@ -30,6 +30,14 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+            </Button>
+            <Button fx:id="BtnDados1" mnemonicParsing="false" onAction="#handleButtonBtnDados" prefHeight="58.0" prefWidth="364.0" styleClass="prop-buttons" text="Adicionar Fornecedor">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font size="24.0" />
+               </font>
             </Button>
             <Button fx:id="BtnAdicionar" mnemonicParsing="false" onAction="#handleButtonBtnAdicionar" prefHeight="58.0" prefWidth="331.0" styleClass="prop-buttons" text="Adicionar Produtos" textAlignment="CENTER">
                <VBox.margin>
@@ -66,7 +74,7 @@
             </Button>
             <Button fx:id="BtnSair" mnemonicParsing="false" onAction="#handleButtonBtnSair" prefHeight="39.0" prefWidth="30.0" styleClass="other-button" text="Sair">
                <VBox.margin>
-                  <Insets top="80.0" />
+                  <Insets top="60.0" />
                </VBox.margin>
                <cursor>
                   <Cursor fx:constant="HAND" />

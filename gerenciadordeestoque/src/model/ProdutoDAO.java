@@ -89,7 +89,7 @@ public class ProdutoDAO {
         
         ArrayList<Produto> lista = new ArrayList<>();
         
-        PreparedStatement pst;
+        PreparedStatement  pst;
         ResultSet rs;
         
         try {
@@ -118,7 +118,37 @@ public class ProdutoDAO {
         
         return lista;  
     }
-     
+    public ArrayList <TipoProduto> tipoProduto() throws SQLException{
+        String sql = "SELECT * FROM tipo_produto ORDER BY id";
+        
+        ArrayList <TipoProduto> listaTipo = new ArrayList<>();
+        
+        PreparedStatement  pst;
+        ResultSet rs;
+        
+        try {
+            pst = Conexao.getConexao().prepareStatement(sql);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                TipoProduto tipoProduto = new TipoProduto();
+                tipoProduto.setId(rs.getInt("id"));
+                tipoProduto.setTipoProduto(rs.getString("nome"));
+
+                
+                listaTipo.add(tipoProduto);
+            }
+            
+            rs.close();
+            pst.close();
+            
+             } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return listaTipo;
+    
+    
+    }
     public Produto getById(int id) {
         String sql = "SELECT * FROM produto WHERE id = ?";
         PreparedStatement pst;

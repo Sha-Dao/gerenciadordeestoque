@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javafx.scene.control.Alert;
 import javax.swing.JOptionPane;
+import util.AlertUtil;
 
 /**
  *
@@ -188,9 +190,10 @@ public class PessoaDAO {
             pst.execute();
             pst.close();
             
-            JOptionPane.showMessageDialog(null, "Dados atualizados!");
+             AlertUtil.show("Dados atualizados!", "Seus dados foram atualizados com sucesso!", 
+                     Alert.AlertType.CONFIRMATION);
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Não foi possível atualizar os dados!");
+            AlertUtil.show("Campos incompletos", "Preencha todos os campos!", Alert.AlertType.ERROR);
             System.out.println(ex);
         }
         }
@@ -210,9 +213,11 @@ public class PessoaDAO {
                 pst.execute();
                 pst.close();
                 
-     
+                 AlertUtil.show("Atualização completa!", "Sua senha foi alterada com sucesso!", 
+                     Alert.AlertType.CONFIRMATION);
              }catch (SQLException ex) {
-                 JOptionPane.showMessageDialog(null, "Não foi possível atualizar a senha!");
+                  AlertUtil.show("Erro de atualização", "Não foi possível atualizar sua senha!", 
+                     Alert.AlertType.ERROR);
                  System.out.println(ex);
                 
                  
