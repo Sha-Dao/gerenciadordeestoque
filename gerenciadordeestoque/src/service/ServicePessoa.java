@@ -14,6 +14,8 @@ import java.awt.image.RenderedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -45,7 +47,7 @@ public class ServicePessoa {
     private BufferedImage imagem;
     private Date data;
     private Pessoa pessoa;
-    private static File imagemFile;
+    private static File imagemFile = null;
     
      public ServicePessoa() {
         //pessoaDAO e data são instanciados e telaPessoa recebe o atributo de tela
@@ -92,7 +94,7 @@ public class ServicePessoa {
     
 
     public void cadastrar(String nome, String email, String cpf, String telefone,
-    String senha, LocalDate data, String endereco) throws ParseException, IOException {
+    String senha, LocalDate data, String endereco) throws ParseException, IOException, URISyntaxException {
             byte[] fotoEmBytes = null;
             
             if (imagemFile != null) {
@@ -106,7 +108,9 @@ public class ServicePessoa {
             }
             }
             else{
-                File imagemPadraoFile = new File ("/imagens/perfil-imagem.png");
+      
+                File imagemPadraoFile = new File("src/imagens/perfil-imagem.png");
+
             try {
     
                 fotoEmBytes = Files.readAllBytes(imagemPadraoFile.toPath());

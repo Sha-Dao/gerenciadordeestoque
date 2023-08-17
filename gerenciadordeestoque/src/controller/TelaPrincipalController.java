@@ -55,6 +55,9 @@ public class TelaPrincipalController implements Initializable{
     @FXML 
     private Button BtnSair;
     
+    @FXML
+    private Button BtnAdicionarFornecedor;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Esse método é chamado quando a tela é inicializada
@@ -65,7 +68,7 @@ public class TelaPrincipalController implements Initializable{
     }
 
     @FXML
-    public void handleButtonBtnLista() throws IOException{
+    public void handleButtonLista() throws IOException{
         // Carrega a tela de listagem de produtos
         
         FXMLLoader loader = new FXMLLoader();
@@ -149,6 +152,21 @@ public class TelaPrincipalController implements Initializable{
 }
 
         // Exibir a tela de login
+     @FXML
+     public void handleButtonAdicionarFornecedor() throws IOException{
+         FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/view/TelaCadastroFornecedor.fxml"));
+        Parent content = loader.load();
+
+        Stage fornecedor = new Stage();
+        fornecedor.initModality(Modality.APPLICATION_MODAL);
+        fornecedor.setTitle("DADOS PESSOAIS");
+        Scene scene = new Scene(content);
+        fornecedor.setScene(scene);
+
+        fornecedor.showAndWait();
+
+    }
      
     }
 

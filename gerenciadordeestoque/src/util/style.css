@@ -21,18 +21,33 @@
     
 }
 
-.date-picker .text-field {
+.date-picker {
     -fx-text-fill: white;
     -fx-background-color:  rgb(127,108,235);
+    -fx-border-width: 0;
     
 }
+.date-picker .text-field{
+    -fx-text-fill: white;
+    -fx-background-color:  rgb(127,108,235);
+    -fx-border-width: 0;
+    
+    
+}
+.date-picker .prompt-text {
+    -fx-background-color: rgb(127, 108, 235);
+}
+
 .gradiente{
     -fx-background-color: linear-gradient(to bottom right, red, yellow);
 
     
 }
-.spinner .text-field{
+.combo-box {
     -fx-background-color: rgb(127,108,235);
+    -fx-text-fill: white;
     
     
 }
+
+

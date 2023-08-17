@@ -3,46 +3,40 @@
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Group xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaLoginController">
+
+<Group xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaEditarProdutoController">
    <children>
       <Pane layoutY="-1.0" prefHeight="600.0" prefWidth="763.0" style="-fx-background-color: rgb(72,69,174);">
          <children>
-            <Button fx:id="buttonSelecionarFoto" layoutX="502.0" layoutY="395.0" mnemonicParsing="false" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold;" text="SELECIONAR FOTO" textFill="WHITE">
+            <Button fx:id="buttonSelecionarFoto" layoutX="501.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleSelecionarFoto" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold;" text="SELECIONAR FOTO" textFill="WHITE">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
-            <ImageView fitHeight="229.0" fitWidth="262.0" layoutX="459.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fotoProduto" fitHeight="229.0" fitWidth="262.0" layoutX="459.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@produto-padrao1.png" />
+                  <Image url="@../imagens/produto-padrao1.png" />
                </image>
             </ImageView>
-            <Label layoutX="293.0" layoutY="44.0" prefHeight="35.0" prefWidth="218.0" style="-fx-font-weight: bold;" text="EDITAR PRODUTO" textFill="WHITE">
+            <Label layoutX="272.0" layoutY="42.0" prefHeight="35.0" prefWidth="218.0" style="-fx-font-weight: bold;" text="EDITAR PRODUTO" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Spinner fx:id="spnQuantidade" layoutX="70.0" layoutY="410.0" prefHeight="25.0" prefWidth="65.0" />
-            <Label layoutX="69.0" layoutY="373.0" style="-fx-font-weight: bold;" text="QUANTIDADE" textFill="WHITE">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <TextField fx:id="txtTipo" layoutX="69.0" layoutY="247.0" prefHeight="25.0" prefWidth="262.0" style="-fx-background-color: rgb(127,108,235);" />
+            <TextField fx:id="txtTipo" layoutX="69.0" layoutY="247.0" prefHeight="25.0" prefWidth="262.0" promptText="id do tipo do produto" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;" />
             <Label layoutX="67.0" layoutY="290.0" style="-fx-font-weight: bold;" text="PREÇO" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="txtPreco" layoutX="69.0" layoutY="320.0" prefHeight="25.0" prefWidth="262.0" style="-fx-background-color: rgb(127,108,235);" />
-            <TextField fx:id="txtNome" layoutX="69.0" layoutY="168.0" prefHeight="25.0" prefWidth="262.0" style="-fx-background-color: rgb(127,108,235);" />
+            <TextField fx:id="txtPreco" layoutX="69.0" layoutY="320.0" prefHeight="25.0" prefWidth="262.0" promptText="preço do produto" style="-fx-text-fill: white; -fx-background-color: rgb(127,108,235);" />
+            <TextField fx:id="txtNome" layoutX="69.0" layoutY="168.0" prefHeight="25.0" prefWidth="262.0" promptText="nome do produto" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;" />
             <Label layoutX="68.0" layoutY="133.0" style="-fx-font-weight: bold;" text="NOME" textFill="WHITE">
                <font>
                   <Font size="16.0" />
@@ -53,9 +47,9 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Button fx:id="buttonSalvarAlteracoes" cancelButton="true" layoutX="323.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleSalvarAlteracoes" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold;" text="Salvar Alterações" textFill="WHITE">
+            <Button fx:id="buttonSalvarAlteracoes" layoutX="300.0" layoutY="523.0" mnemonicParsing="false" onAction="#handleSalvarAlteracoes" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold;" text="SALVAR ALTERAÇÕES" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font size="14.0" />
                </font>
             </Button>
          </children>

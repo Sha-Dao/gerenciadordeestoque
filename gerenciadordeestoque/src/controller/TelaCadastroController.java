@@ -4,6 +4,7 @@ package controller;
 import java.io.File;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -78,7 +79,7 @@ public class TelaCadastroController implements Initializable {
     }
     
     @FXML
-    public void handleButtonCadastrarPessoa() throws IOException, ParseException, SQLException{
+    public void handleButtonCadastrarPessoa() throws IOException, ParseException, SQLException, URISyntaxException{
         
         if (validateFields()){
             if (pessoaDAO.checarUsuario(txtEmail.getText())){
@@ -90,6 +91,7 @@ public class TelaCadastroController implements Initializable {
             AlertUtil.show("Cadastro concluído!", "Seu cadastro foi realizado com sucesso!", Alert.AlertType.CONFIRMATION);
             Stage stage = (Stage) btnCadastrar.getScene().getWindow();
             stage.close();
+            
             } else{
                 AlertUtil.show("Email já cadastrado!","O endereço de email já está cadastrado!", Alert.AlertType.ERROR);
             }
