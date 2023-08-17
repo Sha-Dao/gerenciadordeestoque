@@ -77,7 +77,7 @@ public class TelaListagemController {
         MenuItem button = (MenuItem) event.getSource();
         Alert confirmationAlert = new Alert(Alert.AlertType.CONFIRMATION);
         confirmationAlert.setTitle("Confirmação");
-        confirmationAlert.setHeaderText("Deletar Perfil");
+        confirmationAlert.setHeaderText("Deletar Produto");
         confirmationAlert.setContentText("Tem certeza que deseja deletar o produto? Essa ação não pode ser desfeita.");
 
         Optional<ButtonType> result = confirmationAlert.showAndWait();
