@@ -11,4 +11,26 @@ package model;
  */
 public class TipoProduto {
     
+    private int id;
+    private String tipoProduto;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTipoProduto() {
+        return tipoProduto;
+    }
+
+    public void setTipoProduto(String tipoProduto) {
+        this.tipoProduto = tipoProduto;
+    }
+    
+    
+    
+    
 }
