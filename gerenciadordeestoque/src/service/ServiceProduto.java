@@ -10,13 +10,10 @@ public class ServiceProduto {
     ProdutoDAO produtoDAO;
 
     public ServiceProduto() {
-        this.produtoDAO = new ProdutoDAO();
+        produtoDAO = new ProdutoDAO();
     }
-    
-    
 
     public Produto getProdutoById(int produtoId) {
-        System.out.println(produtoDAO.listar());
         return produtoDAO.getById(produtoId);
     }
 
@@ -25,10 +22,12 @@ public class ServiceProduto {
         
     }
 
-    public void EditarProduto(Produto produto) {
+    public void editarProduto(Produto produto) {
         produtoDAO.alterar(produto);
     }
     
-    
+    public void deletarProduto(Produto produto){
+        produtoDAO.excluir(produto);
+    }
     
 }

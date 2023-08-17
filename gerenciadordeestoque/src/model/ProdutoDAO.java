@@ -51,7 +51,6 @@ public class ProdutoDAO {
         PreparedStatement pst;
         try {
             pst = Conexao.getConexao().prepareStatement(sql);
-            System.out.println(produto.getImagem());
             pst.setString(1, produto.getNome());
             pst.setInt(2, produto.getIdTipo());
             pst.setInt(3, produto.getQuantidade());
