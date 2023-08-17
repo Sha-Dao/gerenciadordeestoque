@@ -29,6 +29,4 @@ public class ServiceProduto {
         produtoDAO.alterar(produto);
     }
     
-    
-    
 }

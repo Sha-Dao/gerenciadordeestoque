@@ -1,0 +1,53 @@
+.prop-buttons{
+    -fx-background-color:  rgb(72,69,174);
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-font-weight: bold ; 
+    -fx-font-family: tahoma;
+    -fx-background-radius: 20;
+    -fx-pref-width: 380;
+    
+
+}
+.other-button{
+    -fx-background-color:  rgb(72,69,174);
+    -fx-text-fill: white;
+    -fx-font-size: 30;
+    -fx-font-weight: bold ; 
+    -fx-font-family: tahoma;
+    -fx-background-radius: 20;
+    -fx-pref-width: 150;
+    
+    
+}
+
+.date-picker {
+    -fx-text-fill: white;
+    -fx-background-color:  rgb(127,108,235);
+    -fx-border-width: 0;
+    
+}
+.date-picker .text-field{
+    -fx-text-fill: white;
+    -fx-background-color:  rgb(127,108,235);
+    -fx-border-width: 0;
+    
+    
+}
+.date-picker .prompt-text {
+    -fx-background-color: rgb(127, 108, 235);
+}
+
+.gradiente{
+    -fx-background-color: linear-gradient(to bottom right, red, yellow);
+
+    
+}
+.combo-box {
+    -fx-background-color: rgb(127,108,235);
+    -fx-text-fill: white;
+    
+    
+}
+
+
