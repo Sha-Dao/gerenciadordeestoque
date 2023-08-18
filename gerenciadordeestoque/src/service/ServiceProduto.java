@@ -1,7 +1,11 @@
 
 package service;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 import model.DevolucaoDAO;
 import model.EntradaDAO;
 import model.ProdutoDAO;
@@ -17,6 +21,7 @@ public class ServiceProduto {
     EntradaDAO entradaDAO;
     DevolucaoDAO devolucaoDAO;
     RetiradaDAO retiradaDAO;
+    private static File imagemFile = null;
 
     public ServiceProduto() {
         produtoDAO = new ProdutoDAO();
@@ -49,5 +54,20 @@ public class ServiceProduto {
     }
     public void retiradaProduto(Retirada retirada){
         retiradaDAO.inserir(retirada);
+    }
+    public void adicionarProduto(Produto produto){
+        produtoDAO.inserir(produto);
+    }
+    public File imagem(Window window) throws IOException{
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Abrir Imagem");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg", "*.gif");
+        fileChooser.getExtensionFilters().add(extFilter);
+        java.io.File selectedFile = fileChooser.showOpenDialog(window);
+        
+        imagemFile = selectedFile;
+        
+        return selectedFile;
     }
 }
