@@ -159,11 +159,11 @@ public class TelaPrincipalController implements Initializable{
         Parent content = loader.load();
 
         Stage fornecedor = new Stage();
-        fornecedor.initModality(Modality.APPLICATION_MODAL);
-        fornecedor.setTitle("DADOS PESSOAIS");
+        fornecedor.setTitle("CADASTRO FORNECEDOR");
         Scene scene = new Scene(content);
         fornecedor.setScene(scene);
-
+        fornecedor.centerOnScreen();
+        fornecedor.setResizable(false);
         fornecedor.showAndWait();
 
     }

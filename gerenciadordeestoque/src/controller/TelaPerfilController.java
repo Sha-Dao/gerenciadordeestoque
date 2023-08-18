@@ -87,6 +87,8 @@ public class TelaPerfilController implements Initializable {
         if (validateFields()){
             servicePessoa.updateCampos(txtNome.getText(), txtEmail.getText(), txtCpf.getText(), 
                     txtTelefone.getText(), datePicker.getValue(), txtEndereco.getText());
+            Stage stage = (Stage) btnSalvar.getScene().getWindow();
+            stage.close();
            
         }
     }

@@ -40,11 +40,11 @@ public class TelaCadastroController implements Initializable {
     @FXML
     private TextField txtEmail;
     @FXML
-    private MaskTextField txtCpf;
+    private TextField txtCpf;
     @FXML
     private DatePicker datePicker;
     @FXML
-    private MaskTextField txtTelefone;
+    private TextField txtTelefone;
     @FXML
     private TextField txtEndereco;
     @FXML
@@ -71,8 +71,6 @@ public class TelaCadastroController implements Initializable {
         passwordFieldConfSenha.textProperty().addListener((observable, oldValue, newValue) -> {
         validatePasswordsMatch();
     });
-        txtCpf.setMask("NNNNNNNNNNN");
-        txtTelefone.setMask("NNNNNNNNNNN");
         
        
         

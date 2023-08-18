@@ -149,30 +149,9 @@ public class ProdutoDAO {
         return listaTipo;
     
     
-    }
     
-    public void adicionarFornecedor (Fornecedor fornecedor){
-        String sql = "INSERT INTO `fornecedor`(`nome`,`idtipo`) VALUES (?, ?)";
-        PreparedStatement pst;
-  
-        try{
-            pst = Conexao.getConexao().prepareStatement(sql);
-           
-            pst.setString(1, fornecedor.getNome());
-            pst.setInt(2, fornecedor.getIdTipo());
-            
-            pst.execute();
     
-            pst.close();
-            AlertUtil.show("Cadastro concluído!", "Seu fornecedor foi cadastrado!", 
-                     Alert.AlertType.CONFIRMATION);
-            
-        } catch (SQLException e){
-             AlertUtil.show("Erro!", "Ocorreu um erro ao cadastrar seu fornecedor", 
-                     Alert.AlertType.CONFIRMATION);
-             System.out.println(e);
-                       
-        }
+   
         
         
     

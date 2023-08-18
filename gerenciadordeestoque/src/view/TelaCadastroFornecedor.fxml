@@ -7,34 +7,70 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="443.0" prefWidth="539.0" style="-fx-background-color: rgb(72,69,174);" stylesheets="@../util/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadastroFornecedor">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="668.0" style="-fx-background-color: rgb(72,69,174);" stylesheets="@../util/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TelaCadastroFornecedor">
    <children>
-      <Label layoutX="78.0" layoutY="29.0" text="CADASTRAR FORNECEDOR" textFill="WHITE">
+      <Label layoutX="142.0" layoutY="66.0" text="CADASTRAR FORNECEDOR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label layoutX="99.0" layoutY="125.0" style="-fx-font-weight: bold;" text="NOME" textFill="WHITE">
+      <TextField fx:id="txtNome" layoutX="116.0" layoutY="198.0" prefHeight="30.0" prefWidth="433.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white; -fx-background-radius: 2;" styleClass="text-comum" />
+      <Button fx:id="btnCadastrarFornecedor" layoutX="159.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonCadastrarFornecedor" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold; -fx-background-radius: 8; -fx-font-family: tahoma;" styleClass="general-button" stylesheets="@../util/style.css" text="CADASTRAR" textFill="WHITE">
          <font>
-            <Font name="Tahoma" size="18.0" />
+            <Font name="Tahoma Bold" size="18.0" />
          </font>
-      </Label>
-      <Label layoutX="99.0" layoutY="220.0" style="-fx-font-weight: bold;" text="TIPO DE PRODUTO" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <TextField fx:id="txtNome" layoutX="99.0" layoutY="149.0" prefHeight="30.0" prefWidth="345.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white;" />
-      <Button fx:id="btnCadastrarFornecedor" layoutX="127.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleButtonCadastrarFornecedor" style="-fx-background-color: rgb(127,108,235);" text="CADASTRAR" textFill="WHITE">
+      </Button>
+      <Button fx:id="btnSairFornecedor" layoutX="412.0" layoutY="604.0" mnemonicParsing="false" onAction="#handleButtonSairFornecedor" style="-fx-background-color: rgb(127,108,235); -fx-font-weight: bold;" styleClass="general-button" text="SAIR" textFill="WHITE">
          <font>
             <Font name="Tahoma Bold" size="16.0" />
          </font>
       </Button>
-      <Button fx:id="btnSairFornecedor" layoutX="319.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleButtonSairFornecedor" style="-fx-background-color: rgb(127,108,235);" text="SAIR" textFill="WHITE">
+      <ComboBox fx:id="comboBox" layoutX="117.0" layoutY="495.0" prefHeight="30.0" prefWidth="433.0" promptText="Selecione o tipo de produto que fornece" styleClass="combo-box" />
+      <TextField fx:id="txtCidade" layoutX="116.0" layoutY="349.0" prefHeight="30.0" prefWidth="213.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white; -fx-background-radius: 2;" styleClass="text-comum" />
+      <TextField fx:id="txtEndereco" layoutX="116.0" layoutY="276.0" prefHeight="30.0" prefWidth="213.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white; -fx-background-radius: 2;" styleClass="text-comum" />
+      <Label layoutX="116.0" layoutY="174.0" text="NOME" textFill="WHITE">
          <font>
-            <Font name="Tahoma Bold" size="16.0" />
+            <Font name="Tahoma Bold" size="18.0" />
          </font>
-      </Button>
-      <ComboBox fx:id="comboBox" layoutX="99.0" layoutY="244.0" prefHeight="30.0" prefWidth="346.0" promptText="Selecione o tipo de produto que fornece" />
+      </Label>
+      <Label layoutX="116.0" layoutY="252.0" text="ENDEREÇO" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBairro" layoutX="347.0" layoutY="276.0" prefHeight="30.0" prefWidth="203.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white; -fx-background-radius: 2;" styleClass="text-comum" />
+      <Label layoutX="347.0" layoutY="252.0" text="BAIRRO" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="comboBoxUF" layoutX="349.0" layoutY="349.0" prefHeight="30.0" prefWidth="203.0" promptText="UF" styleClass="combo-box" />
+      <Label layoutX="116.0" layoutY="325.0" text="CIDADE" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="347.0" layoutY="325.0" text="UF" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCNPJ" layoutX="116.0" layoutY="422.0" prefHeight="30.0" prefWidth="213.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white; -fx-background-radius: 2;" styleClass="text-comum" />
+      <Label layoutX="116.0" layoutY="398.0" text="CNPJ" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtRamo" layoutX="347.0" layoutY="422.0" prefHeight="30.0" prefWidth="203.0" style="-fx-background-color: rgb(127,108,235); -fx-text-fill: white; -fx-background-radius: 2;" styleClass="text-comum" />
+      <Label layoutX="347.0" layoutY="397.0" prefHeight="24.0" prefWidth="203.0" text="RAMO DE ATIVIDADE" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="119.0" layoutY="471.0" text="TIPO DE PRODUTO" textFill="WHITE">
+         <font>
+            <Font name="Tahoma Bold" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

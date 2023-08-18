@@ -20,16 +20,38 @@
     
     
 }
-
+.general-button{
+    
+    -fx-background-color:  rgb(127,108,235);
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-font-family: tahoma;
+    -fx-font-size: 18;
+    
+}
+.text-comum{
+    -fx-font-family: tahoma;
+    
+}
+.text-field{
+    -fx-background-color:  rgb(127,108,235);
+    -fx-border-color: rgb(127,108,235);
+    
+    
+}
+.text-field:focus {
+     -fx-background-color:  rgb(127,108,235);
+      -fx-border-color: rgb(127,108,235);
+}
 .date-picker {
-    -fx-text-fill: white;
     -fx-background-color:  rgb(127,108,235);
     -fx-border-width: 0;
+    -fx-text-fill: white;
     
 }
 .date-picker .text-field{
-    -fx-text-fill: white;
     -fx-background-color:  rgb(127,108,235);
+    -fx-text-fill: white;
     -fx-border-width: 0;
     
     
@@ -43,10 +65,20 @@
 
     
 }
-.combo-box {
-    -fx-background-color: rgb(127,108,235);
-    -fx-text-fill: white;
+.combo-box  {
+    -fx-background-color: rgb(127,108,235); 
     
+}
+
+.combo-box-base .text{
+    -fx-fill: white;
+    
+    
+}
+.combo-box .list-cell{
+    -fx-background-color: rgb(127,108,235); 
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
     
 }
 
