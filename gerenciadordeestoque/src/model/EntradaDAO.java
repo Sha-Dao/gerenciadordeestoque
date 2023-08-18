@@ -20,7 +20,7 @@ import java.util.List;
 public class EntradaDAO {
     
     public void inserir(Entrada entrada){
-        String sql = "INSERT INTO `produto`(`idproduto`, `quantidade`, `data`) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO `entrada`(`idproduto`, `quantidade`, `data`) VALUES (?, ?, ?)";
         PreparedStatement pst;
   
         try{

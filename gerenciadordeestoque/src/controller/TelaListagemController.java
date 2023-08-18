@@ -104,7 +104,6 @@ public class TelaListagemController {
     public void handleButtonEditarProduto(ActionEvent event) throws IOException{
         MenuItem button = (MenuItem) event.getSource();
         int produtoId = Integer.parseInt(button.getId());
-        System.out.println(produtoId);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TelaEditarProduto.fxml"));
         Parent root = loader.load();
@@ -120,6 +119,58 @@ public class TelaListagemController {
         editStage.showAndWait();
 
     }
+    
+    public void handleButtonDevolverProduto(ActionEvent event) throws IOException{
+        MenuItem button = (MenuItem) event.getSource();
+        int produtoId = Integer.parseInt(button.getId());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TelaDevolucaoProduto.fxml"));
+        Parent root = loader.load();
+        
+        TelaDevolucaoProdutoController controleDevolverProduto = loader.getController();
+        controleDevolverProduto.setProduto(produtoId);
+
+        Stage editStage = new Stage();
+        editStage.setTitle("Devolver Produto");
+        editStage.setScene(new Scene(root));
+        editStage.initModality(Modality.APPLICATION_MODAL);
+
+        editStage.showAndWait();
+    }
+    public void handleButtonEntradaProduto(ActionEvent event) throws IOException{
+        MenuItem button = (MenuItem) event.getSource();
+        int produtoId = Integer.parseInt(button.getId());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TelaEntradaProduto.fxml"));
+        Parent root = loader.load();
+        
+        TelaEntradaProdutoController telaEntradaProdutoController = loader.getController();
+        telaEntradaProdutoController.setProduto(produtoId);
+
+        Stage editStage = new Stage();
+        editStage.setTitle("Entrada de Produto");
+        editStage.setScene(new Scene(root));
+        editStage.initModality(Modality.APPLICATION_MODAL);
+
+        editStage.showAndWait();
+    }
+     public void handleButtonRetiradaProduto(ActionEvent event) throws IOException{
+        MenuItem button = (MenuItem) event.getSource();
+        int produtoId = Integer.parseInt(button.getId());
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TelaRetirarProduto.fxml"));
+        Parent root = loader.load();
+        
+        TelaRetirarProdutoController telaRetirarProdutoController = loader.getController();
+        telaRetirarProdutoController.setProduto(produtoId);
+
+        Stage editStage = new Stage();
+        editStage.setTitle("Entrada de Produto");
+        editStage.setScene(new Scene(root));
+        editStage.initModality(Modality.APPLICATION_MODAL);
+
+        editStage.showAndWait();
+     }
     
     
     public void mostrarProdutosNaTela(ArrayList<Produto> produtos){
@@ -148,11 +199,29 @@ public class TelaListagemController {
                      }else if(menuItem.getId().equals("btnDeletar")){
                          menuItem.setOnAction(event -> handleButtonDeletarProduto(event));
                      } else if(menuItem.getId().equals("btnEntrada")){
-                         
+                         menuItem.setOnAction(event -> {
+                            try {
+                                handleButtonEntradaProduto(event);
+                            } catch (IOException e) {
+                                e.printStackTrace(); 
+                            }
+                        });
                      }else if(menuItem.getId().equals("btnRetirada")){
-                         
+                         menuItem.setOnAction(event -> {
+                            try {
+                                handleButtonRetiradaProduto(event);
+                            } catch (IOException e) {
+                                e.printStackTrace(); 
+                            }
+                        });
                      }else if(menuItem.getId().equals("btnDevolucao")){
-                         
+                         menuItem.setOnAction(event -> {
+                            try {
+                                handleButtonDevolverProduto(event);
+                            } catch (IOException e) {
+                                e.printStackTrace(); 
+                            }
+                        });
                      }
                      menuItem.setId(Integer.toString(produto.getId()));
                 }

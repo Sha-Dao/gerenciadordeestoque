@@ -9,6 +9,7 @@ import java.util.List;
 public class DevolucaoDAO {
 
     public void inserir(Devolucao devolucao) {
+        System.out.println("DEVOLVENDO");
         String sql = "INSERT INTO `devolucao`(`idproduto`, `quantidade`, `data`) VALUES (?, ?, ?)";
         PreparedStatement pst;
 
